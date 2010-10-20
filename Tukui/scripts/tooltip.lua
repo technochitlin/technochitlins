@@ -43,7 +43,7 @@ GameTooltip:HookScript("OnUpdate",function(self, ...)
 		self:SetBackdropBorderColor(unpack(TukuiCF.media.bordercolor))
 	elseif self:GetAnchorType() == "ANCHOR_NONE" then
 		if InCombatLockdown() and db.hidecombat == true then
-			self:SetAlpha(0)
+			self:Hide()
 		else
 			self:SetAlpha(1)
 			if TukuiCF["bags"].enable == true and StuffingFrameBags:IsShown() then
