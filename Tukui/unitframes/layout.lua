@@ -160,6 +160,7 @@ local function Shared(self, unit)
 				panel:SetPoint("TOPLEFT", power, "BOTTOMLEFT", 0, -TukuiDB.mult)
 				portrait:SetPoint("TOPRIGHT", health, "TOPRIGHT", 34,0)
 			end
+			panel:SetWidth(panel:GetWidth() - 34) -- panel need to be resized if charportrait is enabled
 			table.insert(self.__elements, TukuiDB.HidePortrait)
 			self.Portrait = portrait
 		end
