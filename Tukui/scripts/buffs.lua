@@ -69,10 +69,9 @@ local function UpdateBuffAnchors()
 	buttonName = "BuffButton"
 	local buff, previousBuff, aboveBuff;
 	local numBuffs = 0;
-	local index;
-	for index=1, BUFF_ACTUAL_DISPLAY do
-		local buff = _G[buttonName..index]
-		StyleBuffs(buttonName, index, false)
+	for i=1, BUFF_ACTUAL_DISPLAY do
+		local buff = _G[buttonName..i]
+		StyleBuffs(buttonName, i, false)
 		
 		-- Leaving this here just in case someone want to use it
 		-- This enable buff border coloring according to Type
@@ -84,7 +83,7 @@ local function UpdateBuffAnchors()
 		else
 			color = DebuffTypeColor["none"]
 		end
-		_G[buttonName..index.."Panel"]:SetBackdropBorderColor(color.r * 0.6, color.g * 0.6, color.b * 0.6)
+		_G[buttonName..i.."Panel"]:SetBackdropBorderColor(color.r * 0.6, color.g * 0.6, color.b * 0.6)
 		--]]
 		
 		if ( buff.consolidated ) then
@@ -94,16 +93,15 @@ local function UpdateBuffAnchors()
 			end
 		else
 			numBuffs = numBuffs + 1
-			index = numBuffs
 			buff:ClearAllPoints()
-			if ( (index > 1) and (mod(index, rowbuffs) == 1) ) then
-				if ( index == rowbuffs+1 ) then
+			if ( (numBuffs > 1) and (mod(numBuffs, rowbuffs) == 1) ) then
+				if ( numBuffs == rowbuffs+1 ) then
 					buff:SetPoint("TOPRIGHT", UIParent, TukuiDB.Scale(-184), TukuiDB.Scale(-92))
 				else
 					buff:SetPoint("TOPRIGHT", UIParent, TukuiDB.Scale(-184), TukuiDB.Scale(-22))
 				end
 				aboveBuff = buff;
-			elseif ( index == 1 ) then
+			elseif ( numBuffs == 1 ) then
 				local mainhand, _, _, offhand, _, _, hand3 = GetWeaponEnchantInfo()
 					if (mainhand and offhand and hand3) and not UnitHasVehicleUI("player") then
 						buff:SetPoint("RIGHT", TempEnchant3, "LEFT", TukuiDB.Scale(-4), 0)
