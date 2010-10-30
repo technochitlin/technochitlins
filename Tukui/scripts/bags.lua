@@ -1116,6 +1116,7 @@ end
 
 
 function Stuffing:SortBags()
+	if (UnitAffectingCombat("player")) then return end;
 	local bs = self.sortBags
 	if #bs < 1 then
 		Print (tukuilocal.bags_nothingsort)
