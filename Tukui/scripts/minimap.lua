@@ -196,8 +196,11 @@ Minimap:SetScript("OnEnter",function()
 	m_zone.anim_o:Stop()
 	m_coord.anim_o:Stop()
 	m_zone:Show()
-	m_coord:Show()
-	m_coord.anim:Play()
+	local x,y = GetPlayerMapPosition("player")
+	if x ~= 0 and y ~= 0 then
+		m_coord:Show()
+		m_coord.anim:Play()
+	end
 	m_zone.anim:Play()
 end)
  
