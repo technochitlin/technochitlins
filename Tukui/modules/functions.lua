@@ -90,7 +90,7 @@ function TukuiDB.CreateShadow(f)
 end
 
 function TukuiDB.Kill(object)
-	if object:IsObjectType("Frame") or object:IsObjectType("Button") then
+	if object.UnregisterAllEvents then
 		object:UnregisterAllEvents()
 	end
 	object.Show = TukuiDB.dummy
