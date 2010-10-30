@@ -323,13 +323,17 @@ local function Shared(self, unit)
 				solarBar:SetStatusBarColor(.80, .82,  .60)
 				eclipseBar.SolarBar = solarBar
 
-				local eclipseBarText = solarBar:CreateFontString(nil, 'OVERLAY')
+				local eclipseBarText = eclipseBar:CreateFontString(nil, 'OVERLAY')
 				eclipseBarText:SetPoint('TOP', panel)
 				eclipseBarText:SetPoint('BOTTOM', panel)
 				eclipseBarText:SetFont(font1, 12)
-				eclipseBar.Text = eclipseBarText
+				eclipseBar.PostUpdatePower = TukuiDB.EclipseDirection
+				
+				-- hide "low mana" text on load if eclipseBar is show
+				if eclipseBar and eclipseBar:IsShown() then FlashInfo.ManaLevel:SetAlpha(0) end
 
 				self.EclipseBar = eclipseBar
+				self.EclipseBar.Text = eclipseBarText
 			end
 
 			-- set holy power bar or shard bar
@@ -464,11 +468,21 @@ local function Shared(self, unit)
 			end
 			
 			-- script for pvp status and low mana
-			self:SetScript("OnEnter", function(self) 
-				FlashInfo.ManaLevel:Hide() status:SetAlpha(1) UnitFrame_OnEnter(self) 
+			self:SetScript("OnEnter", function(self)
+				if self.EclipseBar and self.EclipseBar:IsShown() then 
+					self.EclipseBar.Text:Hide()
+				end
+				FlashInfo.ManaLevel:SetAlpha(0) 
+				status:SetAlpha(1) 
+				UnitFrame_OnEnter(self) 
 			end)
 			self:SetScript("OnLeave", function(self) 
-				FlashInfo.ManaLevel:Show() status:SetAlpha(0) UnitFrame_OnLeave(self) 
+				if self.EclipseBar and self.EclipseBar:IsShown() then 
+					self.EclipseBar.Text:Show()
+				end
+				FlashInfo.ManaLevel:SetAlpha(1)
+				status:SetAlpha(0) 
+				UnitFrame_OnLeave(self) 
 			end)
 		end
 		
