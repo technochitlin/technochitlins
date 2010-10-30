@@ -11,6 +11,7 @@ MultiBarBottomLeft:SetParent(TukuiBar2)
 for i=1, 12 do
 	local b = _G["MultiBarBottomLeftButton"..i]
 	local b2 = _G["MultiBarBottomLeftButton"..i-1]
+	b:SetSize(TukuiDB.buttonsize, TukuiDB.buttonsize)
 	b:ClearAllPoints()
 	if i == 1 then
 		if TukuiDB.lowversion and TukuiCF.actionbar.bottomrows == 2 then

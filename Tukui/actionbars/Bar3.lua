@@ -11,6 +11,7 @@ MultiBarLeft:SetParent(TukuiBar3)
 for i= 1, 12 do
 	local b = _G["MultiBarLeftButton"..i]
 	local b2 = _G["MultiBarLeftButton"..i-1]
+	b:SetSize(TukuiDB.buttonsize, TukuiDB.buttonsize)
 	b:ClearAllPoints()
 	if i == 1 then
 		if TukuiCF.actionbar.rightbars > 2 then

@@ -35,10 +35,7 @@ function style(self)
 	Btname:Hide()
 	Btname.Show = TukuiDB.dummy
  
-	if not _G[name.."Panel"] then
-		self:SetWidth(TukuiDB.buttonsize)
-		self:SetHeight(TukuiDB.buttonsize)
- 
+	if not _G[name.."Panel"] then 
 		local panel = CreateFrame("Frame", name.."Panel", self)
 		TukuiDB.CreatePanel(panel, TukuiDB.buttonsize, TukuiDB.buttonsize, "CENTER", self, "CENTER", 0, 0)
  
