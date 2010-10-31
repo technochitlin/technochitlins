@@ -18,6 +18,12 @@ if TukuiDB.client == "deDE" then
 	tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "ist jetzt |cff298F00online|r"
 	tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "ist jetzt |cffff0000offline|r"
 	
+	tukuilocal.chat_general = "Allgemein"
+	tukuilocal.chat_trade = "Handel"
+	tukuilocal.chat_defense = "LokaleVerteidigung"
+	tukuilocal.chat_recrutment = "Gildenrekrutierung"
+	tukuilocal.chat_lfg = "SucheNachGruppe"
+	
 	tukuilocal.disband = "Gruppe wird aufgelöst."  
  
 	tukuilocal.datatext_guild = "Gilde"

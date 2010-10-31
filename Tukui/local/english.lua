@@ -18,6 +18,12 @@ tukuilocal.chat_FLAG_GM = "[GM]"
 tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "is now |cff298F00online|r"
 tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "is now |cffff0000offline|r"
 
+tukuilocal.chat_general = "General"
+tukuilocal.chat_trade = "Trade"
+tukuilocal.chat_defense = "LocalDefense"
+tukuilocal.chat_recrutment = "GuildRecruitment"
+tukuilocal.chat_lfg = "LookingForGroup"
+
 tukuilocal.disband = "Disbanding group."
 
 tukuilocal.datatext_guild = "Guild"

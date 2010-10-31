@@ -17,6 +17,12 @@ if TukuiDB.client == "frFR" then
 	tukuilocal.chat_FLAG_GM = "[MJ]"
 	tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "est maintenant |cff298F00en ligne|r"
 	tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "est maintenant |cffff0000déconnecté|r"
+	
+	tukuilocal.chat_general = "Général"
+	tukuilocal.chat_trade = "Commerce"
+	tukuilocal.chat_defense = "DéfenseLocale"
+	tukuilocal.chat_recrutment = "RecrutementDeGuilde"
+	tukuilocal.chat_lfg = "RechercheDeGroupe"
 
 	tukuilocal.disband = "Dissoudre le groupe"
 

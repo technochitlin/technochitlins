@@ -17,6 +17,12 @@ if TukuiDB.client == "ruRU" then
 	tukuilocal.chat_FLAG_GM = "[ГМ]"
 	tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "|cff298F00входит|r"
 	tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "|cffff0000выходит|r"
+	
+	tukuilocal.chat_general = "General"
+	tukuilocal.chat_trade = "Trade"
+	tukuilocal.chat_defense = "LocalDefense"
+	tukuilocal.chat_recrutment = "GuildRecruitment"
+	tukuilocal.chat_lfg = "LookingForGroup"
  
 	tukuilocal.disband = "Роспуск группы."
  
