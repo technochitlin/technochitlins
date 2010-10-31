@@ -1389,24 +1389,41 @@ if db.showboss then
 	end
 end
 
--- THIS NEED TO BE UPDATED FOR 4.0.1 BUT I'M RUNNING OUT OF TIME FOR A v12 RELEASE.
---[[
-if db.maintank == true then
-	local tank = oUF:SpawnHeader("oUF_MainTank", nil, 'raid, party, solo', 
-		"showRaid", true, "groupFilter", "MAINTANK", "yOffset", 5, "point" , "BOTTOM",
-		"template", "oUF_tukzMtt"
+local assisttank_width  = 100
+local assisttank_height  = 20
+if TukuiCF["unitframes"].maintank == true then
+	local tank = oUF:SpawnHeader('oUF_MainTank', nil, 'raid',
+		'oUF-initialConfigFunction', ([[
+			self:SetWidth(%d)
+			self:SetHeight(%d)
+		]]):format(assisttank_width, assisttank_height),
+		'showRaid', true,
+		'groupFilter', 'MAINTANK',
+		'yOffset', 7,
+		'point' , 'BOTTOM',
+		'template', 'oUF_tukzMtt'
 	)
 	tank:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 end
-
-if db.mainassist == true then
-	local assist = oUF:SpawnHeader("oUF_MainAssist", nil, 'raid, party, solo', 
-		"showRaid", true, "groupFilter", "MAINASSIST", "yOffset", 5, "point" , "BOTTOM",
-		"template", "oUF_tukzMtt"
+ 
+if TukuiCF["unitframes"].mainassist == true then
+	local assist = oUF:SpawnHeader("oUF_MainAssist", nil, 'raid',
+		'oUF-initialConfigFunction', ([[
+			self:SetWidth(%d)
+			self:SetHeight(%d)
+		]]):format(assisttank_width, assisttank_height),
+		'showRaid', true,
+		'groupFilter', 'MAINASSIST',
+		'yOffset', 7,
+		'point' , 'BOTTOM',
+		'template', 'oUF_tukzMtt'
 	)
-	assist:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
+	if TukuiCF["unitframes"].maintank == true then
+		assist:SetPoint("TOPLEFT", oUF_MainTank, "BOTTOMLEFT", 2, -50)
+	else
+		assist:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+	end
 end
---]]
 
 -- this is just a fake party to hide Blizzard frame if no Tukui raid layout are loaded.
 local party = oUF:SpawnHeader("oUF_noParty", nil, "party", "showParty", true)
