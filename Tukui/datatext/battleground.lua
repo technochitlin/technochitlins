@@ -23,23 +23,23 @@ if TukuiCF["datatext"].battleground == true then
 					GameTooltip:AddDoubleLine(tukuilocal.datatext_ttdmgdone, damageDone,1,1,1)
 					GameTooltip:AddDoubleLine(tukuilocal.datatext_tthealdone, healingDone,1,1,1)
 					--Add extra statistics to watch based on what BG you are in.
-					if GetRealZoneText() == "Arathi Basin" then --
+					if GetRealZoneText() == tukuilocal.bg_arathi then 
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_basesassaulted,GetBattlefieldStatData(i, 1),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_basesdefended,GetBattlefieldStatData(i, 2),1,1,1)
-					elseif GetRealZoneText() == "Warsong Gulch" then --
+					elseif GetRealZoneText() == tukuilocal.bg_warsong then 
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_flagscaptured,GetBattlefieldStatData(i, 1),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_flagsreturned,GetBattlefieldStatData(i, 2),1,1,1)
-					elseif GetRealZoneText() == "Eye of the Storm" then --
+					elseif GetRealZoneText() == tukuilocal.bg_eye then 
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_flagscaptured,GetBattlefieldStatData(i, 1),1,1,1)
-					elseif GetRealZoneText() == "Alterac Valley" then
+					elseif GetRealZoneText() == tukuilocal.bg_alterac then
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_graveyardsassaulted,GetBattlefieldStatData(i, 1),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_graveyardsdefended,GetBattlefieldStatData(i, 2),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_towersassaulted,GetBattlefieldStatData(i, 3),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_towersdefended,GetBattlefieldStatData(i, 4),1,1,1)
-					elseif GetRealZoneText() == "Strand of the Ancients" then
+					elseif GetRealZoneText() == tukuilocal.bg_strand then
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_demolishersdestroyed,GetBattlefieldStatData(i, 1),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_gatesdestroyed,GetBattlefieldStatData(i, 2),1,1,1)
-					elseif GetRealZoneText() == "Isle of Conquest" then
+					elseif GetRealZoneText() == tukuilocal.bg_isle then
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_basesassaulted,GetBattlefieldStatData(i, 1),1,1,1)
 						GameTooltip:AddDoubleLine(tukuilocal.datatext_basesdefended,GetBattlefieldStatData(i, 2),1,1,1)
 					end					

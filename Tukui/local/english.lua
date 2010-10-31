@@ -83,6 +83,13 @@ tukuilocal.datatext_gatesdestroyed = "Gates Destroyed:"
 tukuilocal.datatext_totalmemusage = "Total Memory Usage:"
 tukuilocal.datatext_control = "Controlled by:"
 
+tukuilocal.bg_warsong = "Warsong Gulch"
+tukuilocal.bg_arathi = "Arathi Basin"
+tukuilocal.bg_eye = "Eye of the Storm"
+tukuilocal.bg_alterac = "Alterac Valley"
+tukuilocal.bg_strand = "Strand of the Ancients"
+tukuilocal.bg_isle = "Isle of Conquest"
+
 tukuilocal.Slots = {
 	[1] = {1, "Head", 1000},
 	[2] = {3, "Shoulder", 1000},

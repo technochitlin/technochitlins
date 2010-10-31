@@ -82,6 +82,13 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.datatext_gatesdestroyed = "파괴한 관문:"
 	tukuilocal.datatext_totalmemusage = "총 메모리 사용량:"
 	tukuilocal.datatext_control = "Controlled by:"
+	
+	tukuilocal.bg_warsong = "전쟁노래 협곡"
+	tukuilocal.bg_arathi = "아라시 분지"
+	tukuilocal.bg_eye = "폭풍의 눈"
+	tukuilocal.bg_alterac = "알터랙 계곡"
+	tukuilocal.bg_strand = "Strand of the Ancients"
+	tukuilocal.bg_isle = "정복의 섬"
  
 	tukuilocal.Slots = {
 	  [1] = {1, "머리", 1000},

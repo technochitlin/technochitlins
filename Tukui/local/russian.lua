@@ -82,6 +82,13 @@ if TukuiDB.client == "ruRU" then
 	tukuilocal.datatext_gatesdestroyed = "Врат разрушено:"
 	tukuilocal.datatext_totalmemusage = "Общее использование памяти:"
 	tukuilocal.datatext_control = "Под контролем:"
+	
+	tukuilocal.bg_warsong = "Ущелье Песни Войны"
+	tukuilocal.bg_arathi = "Низина Арати"
+	tukuilocal.bg_eye = "Око Бури"
+	tukuilocal.bg_alterac = "Альтеракская долина"
+	tukuilocal.bg_strand = "Берег Древних"
+	tukuilocal.bg_isle = "Остров Завоеваний"
  
 	tukuilocal.Slots = {
 	  [1] = {1, "Голова", 1000},

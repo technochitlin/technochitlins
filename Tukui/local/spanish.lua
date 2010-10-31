@@ -82,6 +82,13 @@ if TukuiDB.client == "esES" then
 	tukuilocal.datatext_gatesdestroyed = "Puertas Destruidas:"
 	tukuilocal.datatext_totalmemusage = "Memoria Total Usada:"
 	tukuilocal.datatext_control = "Controlado por:"
+	
+	tukuilocal.bg_warsong = "Garganta Grito de Guerra"
+	tukuilocal.bg_arathi = "Cuenca de Arathi"
+	tukuilocal.bg_eye = "Ojo de la Tormenta"
+	tukuilocal.bg_alterac = "Valle de Alterac"
+	tukuilocal.bg_strand = "Playa de los Ancestros"
+	tukuilocal.bg_isle = "Isla de la Conquista"
  
 	tukuilocal.Slots = {
 		[1] = {1, "Cabeza", 1000},
