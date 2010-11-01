@@ -40,6 +40,25 @@ local function Shared(self, unit)
 	TukuiDB.CreateShadow(self)
 	
 	------------------------------------------------------------------------
+	--	Features we want for all units at the same time
+	------------------------------------------------------------------------
+	
+	-- here we create an invisible frame for all element we want to show over health/power.
+	-- because we can only use self here, and self is under all elements.
+	local InvFrame = CreateFrame("Frame", nil, self)
+	InvFrame:SetFrameStrata("HIGH")
+	InvFrame:SetFrameLevel(5)
+	InvFrame:SetAllPoints()
+	
+	-- symbols, now put the symbol on the frame we created above.
+	local RaidIcon = InvFrame:CreateTexture(nil, "OVERLAY")
+	RaidIcon:SetTexture("Interface\\AddOns\\Tukui\\media\\textures\\raidicons.blp") -- thx hankthetank for texture
+	RaidIcon:SetHeight(20)
+	RaidIcon:SetWidth(20)
+	RaidIcon:SetPoint("TOP", 0, 8)
+	self.RaidIcon = RaidIcon
+	
+	------------------------------------------------------------------------
 	--	Player and Target units layout (mostly mirror'd)
 	------------------------------------------------------------------------
 	
@@ -192,14 +211,14 @@ local function Shared(self, unit)
 			self:Tag(status, "[pvp]")
 			
 			-- leader icon
-			local Leader = health:CreateTexture(nil, "OVERLAY")
+			local Leader = InvFrame:CreateTexture(nil, "OVERLAY")
 			Leader:SetHeight(TukuiDB.Scale(14))
 			Leader:SetWidth(TukuiDB.Scale(14))
 			Leader:SetPoint("TOPLEFT", TukuiDB.Scale(2), TukuiDB.Scale(8))
 			self.Leader = Leader
 			
 			-- master looter
-			local MasterLooter = health:CreateTexture(nil, "OVERLAY")
+			local MasterLooter = InvFrame:CreateTexture(nil, "OVERLAY")
 			MasterLooter:SetHeight(TukuiDB.Scale(14))
 			MasterLooter:SetWidth(TukuiDB.Scale(14))
 			self.MasterLooter = MasterLooter
@@ -1270,25 +1289,6 @@ local function Shared(self, unit)
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:nameshort]')
 		self.Name = Name
 	end
-
-	------------------------------------------------------------------------
-	--	Features we want for all units at the same time
-	------------------------------------------------------------------------
-	
-	-- here we create an invisible frame for all element we want to show over health/power.
-	-- because we can only use self here, and self is under all elements.
-	local InvFrame = CreateFrame("Frame", nil, self)
-	InvFrame:SetFrameStrata("HIGH")
-	InvFrame:SetFrameLevel(5)
-	InvFrame:SetAllPoints()
-	
-	-- symbols, now put the symbol on the frame we created above.
-	local RaidIcon = InvFrame:CreateTexture(nil, "OVERLAY")
-	RaidIcon:SetTexture("Interface\\AddOns\\Tukui\\media\\textures\\raidicons.blp") -- thx hankthetank for texture
-	RaidIcon:SetHeight(20)
-	RaidIcon:SetWidth(20)
-	RaidIcon:SetPoint("TOP", 0, 8)
-	self.RaidIcon = RaidIcon
 	
 	return self
 end
