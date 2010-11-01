@@ -133,7 +133,7 @@ function tCooldownTracker.Print(msg, ...)
 end
 
 function tCooldownTracker.COMBAT_LOG_EVENT_UNFILTERED(timestamp, event, sourceGUID, sourceName, sourceFlags, destGUID, destName, destFlags, spellID)
-		isArena, isRegistered = IsActiveBattlefieldArena();
+		local isArena, isRegistered = IsActiveBattlefieldArena()
 		if isArena then
 			if (event == "SPELL_CAST_SUCCESS" and not tCooldownTracker.Icons[1]:IsMouseEnabled() and (bit.band(sourceFlags,COMBATLOG_OBJECT_REACTION_HOSTILE) == COMBATLOG_OBJECT_REACTION_HOSTILE)) then			
 				if (sourceName ~= UnitName("player")) then
