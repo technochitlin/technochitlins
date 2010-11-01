@@ -168,7 +168,7 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.core_wf_unlock = "임무 추적창 잠금 해제"
 	tukuilocal.core_wf_lock = "임무 추적창 잠금"
 	tukuilocal.core_welcome1 = "|cffC495DDTukui|r를 사용해주셔서 감사합니다. 버전 "
-	tukuilocal.core_welcome2 = "자세한 사항은 |cff00FFFF/uihelp|r를 입력하거나 <a href="http://www.tukui.org" rel="nofollow">http://www.tukui.org</a> 에 방문하시면 확인 가능합니다."
+	tukuilocal.core_welcome2 = "자세한 사항은 |cff00FFFF/uihelp|r를 입력하거나 www.tukui.org 에 방문하시면 확인 가능합니다."
  
 	tukuilocal.core_uihelp1 = "|cff00ff00일반적인 명령어|r"
 	tukuilocal.core_uihelp2 = "|cffFF0000/tracker|r - Tukui 투기장 애드온 - 가벼운 투기장 애드온입니다."
