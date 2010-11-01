@@ -875,6 +875,7 @@ local function Shared(self, unit)
 			-- castbar of player and target
 			local castbar = CreateFrame("StatusBar", self:GetName().."_Castbar", self)
 			castbar:SetStatusBarTexture(normTex)
+			self.Castbar = castbar
 			
 			if not TukuiDB.lowversion then
 				castbar.bg = castbar:CreateTexture(nil, "BORDER")
@@ -899,7 +900,6 @@ local function Shared(self, unit)
 				castbar.Text:SetPoint("LEFT", panel, "LEFT", TukuiDB.Scale(4), 0)
 				castbar.Text:SetTextColor(0.84, 0.75, 0.65)
 				
-				self.Castbar = castbar
 				self.Castbar.Time = castbar.time
 			end
 		end
