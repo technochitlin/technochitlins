@@ -210,7 +210,7 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
  
 		_G["MacOptionsFrameCancel"]:SetWidth(96)
 		_G["MacOptionsFrameCancel"]:SetHeight(22)
-		local tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsFrameCancel"]:GetPoint()
+		tPoint, tRTo, tRP, tX, tY =  _G["MacOptionsFrameCancel"]:GetPoint()
 		_G["MacOptionsFrameCancel"]:ClearAllPoints()
 		_G["MacOptionsFrameCancel"]:SetPoint(tPoint, tRTo, tRP, TukuiDB.Scale(-14), tY)
  
