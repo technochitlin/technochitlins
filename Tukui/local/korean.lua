@@ -1,8 +1,8 @@
 if TukuiDB.client == "koKR" then
-
+ 
 	tukuilocal.chat_BATTLEGROUND_GET = "[B]"
 	tukuilocal.chat_BATTLEGROUND_LEADER_GET = "[B]"
-	tukuilocal.chat_BN_WHISPER_GET = "From"
+	tukuilocal.chat_BN_WHISPER_GET = "[FR]"
 	tukuilocal.chat_GUILD_GET = "[G]"
 	tukuilocal.chat_OFFICER_GET = "[O]"
 	tukuilocal.chat_PARTY_GET = "[P]"
@@ -11,32 +11,32 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.chat_RAID_GET = "[R]"
 	tukuilocal.chat_RAID_LEADER_GET = "[R]"
 	tukuilocal.chat_RAID_WARNING_GET = "[W]"
-	tukuilocal.chat_WHISPER_GET = "From"
+	tukuilocal.chat_WHISPER_GET = "[FR]"
 	tukuilocal.chat_FLAG_AFK = "[AFK]"
 	tukuilocal.chat_FLAG_DND = "[DND]"
 	tukuilocal.chat_FLAG_GM = "[GM]"
-	tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "is now |cff298F00online|r"
-	tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "is now |cffff0000offline|r"
-	
-	tukuilocal.chat_general = "General"
-	tukuilocal.chat_trade = "Trade"
-	tukuilocal.chat_defense = "LocalDefense"
-	tukuilocal.chat_recrutment = "GuildRecruitment"
-	tukuilocal.chat_lfg = "LookingForGroup"
-	
+	tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "|cff298F00접속|r했습니다"
+	tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "|cffff0000접속종료|r했습니다"
+ 
+	tukuilocal.chat_general = "일반"
+	tukuilocal.chat_trade = "거래"
+	tukuilocal.chat_defense = "수비"
+	tukuilocal.chat_recrutment = "길드모집"
+	tukuilocal.chat_lfg = "파티찾기"
+ 
 	tukuilocal.disband = "공격대를 해체합니다."
  
 	tukuilocal.datatext_guild = "길드"
 	tukuilocal.datatext_noguild = "길드 없음"
-	tukuilocal.datatext_bags = "가방: "
+	tukuilocal.datatext_bags = "소지품: "
 	tukuilocal.datatext_friends = "친구"
 	tukuilocal.datatext_online = "온라인: "
-	tukuilocal.datatext_armor = "내구도"
+	tukuilocal.datatext_armor = "방어구"
 	tukuilocal.datatext_earned = "수입:"
 	tukuilocal.datatext_spent = "지출:"
 	tukuilocal.datatext_deficit = "적자:"
 	tukuilocal.datatext_profit = "흑자:"
-	tukuilocal.datatext_timeto = "Time to"
+	tukuilocal.datatext_timeto = "전투 시간"
 	tukuilocal.datatext_friendlist = "친구 목록:"
 	tukuilocal.datatext_playersp = "주문력"
 	tukuilocal.datatext_playerap = "전투력"
@@ -54,7 +54,7 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.datatext_ms = " ms"
 	tukuilocal.datatext_playercrit = " 치명타율"
 	tukuilocal.datatext_playerheal = " 극대화율"
-	tukuilocal.datatext_avoidancebreakdown = "회피 내역"
+	tukuilocal.datatext_avoidancebreakdown = "완방 수치"
 	tukuilocal.datatext_lvl = "레벨"
 	tukuilocal.datatext_boss = "우두머리"
 	tukuilocal.datatext_miss = "빗맞힘"
@@ -87,13 +87,13 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.datatext_demolishersdestroyed = "파괴한 파괴전차:"
 	tukuilocal.datatext_gatesdestroyed = "파괴한 관문:"
 	tukuilocal.datatext_totalmemusage = "총 메모리 사용량:"
-	tukuilocal.datatext_control = "Controlled by:"
-	
+	tukuilocal.datatext_control = "현재 진영:"
+ 
 	tukuilocal.bg_warsong = "전쟁노래 협곡"
 	tukuilocal.bg_arathi = "아라시 분지"
 	tukuilocal.bg_eye = "폭풍의 눈"
 	tukuilocal.bg_alterac = "알터랙 계곡"
-	tukuilocal.bg_strand = "Strand of the Ancients"
+	tukuilocal.bg_strand = "고대의 해안"
 	tukuilocal.bg_isle = "정복의 섬"
  
 	tukuilocal.Slots = {
@@ -137,11 +137,11 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.unitframes_ouf_goviper = "독사의 상으로 전환"
 	tukuilocal.unitframes_disconnected = "연결끊김"
  
-	tukuilocal.tooltip_count = "수치"
+	tukuilocal.tooltip_count = "개수"
  
 	tukuilocal.bags_noslots = "소지품이 가득 찼습니다."
 	tukuilocal.bags_costs = "가격: %.2f 골"
-	tukuilocal.bags_buyslots = "가방 보관함을 추가로 구입하시기 위해서는 /bags를 입력해주세요."
+	tukuilocal.bags_buyslots = "가방 보관함을 추가로 구입하시려면 /bags를 입력해주세요."
 	tukuilocal.bags_openbank = "먼저 은행을 열어야 합니다."
 	tukuilocal.bags_sort = "열려있는 가방이나 은행에 있는 아이템을 정리합니다."
 	tukuilocal.bags_stack = "띄엄띄엄 있는 아이템을 정리합니다."
@@ -156,6 +156,7 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.bags_nothingsort= "분류할 것이 없습니다."
 	tukuilocal.bags_bids = "사용 중인 가방: "
 	tukuilocal.bags_stackend = "재정리 완료."
+	tukuilocal.bags_rightclick_search = "검색하려면 오른쪽 클릭"
  
 	tukuilocal.chat_invalidtarget = "잘못된 대상"
  
@@ -164,10 +165,10 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.core_autoinv_enable = "자동초대 활성화: 초대"
 	tukuilocal.core_autoinv_enable_c = "자동초대 활성화: "
 	tukuilocal.core_autoinv_disable = "자동초대 비활성화"
-	tukuilocal.core_wf_unlock = "임무 추적기 잠금 해제"
-	tukuilocal.core_wf_lock = "임무 추적기 잠금"
+	tukuilocal.core_wf_unlock = "임무 추적창 잠금 해제"
+	tukuilocal.core_wf_lock = "임무 추적창 잠금"
 	tukuilocal.core_welcome1 = "|cffC495DDTukui|r를 사용해주셔서 감사합니다. 버전 "
-	tukuilocal.core_welcome2 = "자세한 사항은 |cff00FFFF/uihelp|r를 입력하거나 www.tukui.org 에 방문하시면 확인 가능합니다."
+	tukuilocal.core_welcome2 = "자세한 사항은 |cff00FFFF/uihelp|r를 입력하거나 <a href="http://www.tukui.org" rel="nofollow">http://www.tukui.org</a> 에 방문하시면 확인 가능합니다."
  
 	tukuilocal.core_uihelp1 = "|cff00ff00일반적인 명령어|r"
 	tukuilocal.core_uihelp2 = "|cffFF0000/tracker|r - Tukui 투기장 애드온 - 가벼운 투기장 애드온입니다."
@@ -180,7 +181,7 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.core_uihelp9 = "|cffFF0000/bags|r - 분류, 정리, 가방 보관함을 추가 구입을 할 수 있습니다."
 	tukuilocal.core_uihelp10 = "|cffFF0000/resetui|r - Tukui의 설정을 초기화합니다."
 	tukuilocal.core_uihelp11 = "|cffFF0000/rd|r - 공격대를 해체합니다."
-	tukuilocal.core_uihelp12 = "|cffFF0000/wf|r - 임무 추적기를 이동할 수 있습니다."
+	tukuilocal.core_uihelp12 = "|cffFF0000/wf|r - 임무 추적창을 이동할 수 있습니다."
 	tukuilocal.core_uihelp13 = "|cffFF0000/mss|r - 특수 기술 단축바를 이동할 수 있습니다."
 	tukuilocal.core_uihelp15 = "|cffFF0000/ainv|r - 자동초대 기능을 사용합니다. '/ainv 단어'를 입력하여 해당 단어가 들어간 귓속말이 올 경우 자동으로 초대를 합니다."
 	tukuilocal.core_uihelp14 = "(위로 올리십시오 ...)"
@@ -202,7 +203,7 @@ if TukuiDB.client == "koKR" then
 	tukuilocal.bind_save = "저장"
 	tukuilocal.bind_discardbind = "취소"
  
-	tukuilocal.hunter_unhappy = "소환수의 만족도가 불만족입니다."
-	tukuilocal.hunter_content = "소환수의 만족도가 만족입니다."
-	tukuilocal.hunter_happy = "소환수의 만족도가 매우 만족입니다."
+	tukuilocal.hunter_unhappy = "소환수의 만족도: 불만족"
+	tukuilocal.hunter_content = "소환수의 만족도: 만족"
+	tukuilocal.hunter_happy = "소환수의 만족도: 매우 만족"
 end
