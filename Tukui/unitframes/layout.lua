@@ -44,7 +44,6 @@ local function Shared(self, unit)
 	------------------------------------------------------------------------
 	
 	-- here we create an invisible frame for all element we want to show over health/power.
-	-- because we can only use self here, and self is under all elements.
 	local InvFrame = CreateFrame("Frame", nil, self)
 	InvFrame:SetFrameStrata("HIGH")
 	InvFrame:SetFrameLevel(5)
@@ -891,7 +890,6 @@ local function Shared(self, unit)
 		self.Name = Name
 		
 		if (db.unitcastbar == true) then
-			-- castbar of player and target
 			local castbar = CreateFrame("StatusBar", self:GetName().."_Castbar", self)
 			castbar:SetStatusBarTexture(normTex)
 			self.Castbar = castbar
