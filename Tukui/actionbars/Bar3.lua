@@ -37,6 +37,6 @@ if not TukuiDB.lowversion and TukuiCF.actionbar.bottomrows == 2 then
 end
 
 -- hide it if needed
-if (TukuiCF.actionbar.bottomrows == 2 and TukuiCF.actionbar.rightbars < 3) or (TukuiDB.lowversion and TukuiCF.actionbar.rightbars < 3) then
+if (TukuiDB.lowversion and TukuiCF.actionbar.rightbars < 3) or (not TukuiDB.lowversion and TukuiCF.actionbar.bottomrows == 1 and TukuiCF.actionbar.rightbars < 3) then
 	TukuiBar3:Hide()
 end
