@@ -23,7 +23,7 @@ movebutton:SetBackdrop( {
 })
 
 local addon = CreateFrame('Frame')
-addon:RegisterEvent('PLAYER_LOGIN')
+addon:RegisterEvent('PLAYER_ENTERING_WORLD')
 addon:RegisterEvent("PLAYER_REGEN_ENABLED")
 addon:RegisterEvent("PLAYER_REGEN_DISABLED")
 
@@ -40,9 +40,6 @@ if MoveMap == nil then
 end
 
 local SmallerMapSkin = function()
-	-- because it cause "action failed" when displaying smaller map in combat with quests track ...
-	TukuiDB.Kill(WorldMapBlobFrame)
-	
 	-- don't need this
 	TukuiDB.Kill(WorldMapTrackQuest)
 	
@@ -139,13 +136,45 @@ movebutton:SetScript("OnMouseDown", OnMouseDown)
 movebutton:SetScript("OnMouseUp", OnMouseUp)
 
 local OnEvent = function(self, event)
-	-- fixing a stupid bug error by blizzard on default ui :x
-	if event == "PLAYER_REGEN_DISABLED" then
+	if event == "PLAYER_ENTERING_WORLD" then
+		ShowUIPanel(WorldMapFrame)
+		HideUIPanel(WorldMapFrame)
+	elseif event == "PLAYER_REGEN_DISABLED" then
 		WorldMapFrameSizeDownButton:Disable() 
 		WorldMapFrameSizeUpButton:Disable()
+		HideUIPanel(WorldMapFrame)
+		WorldMap_ToggleSizeDown()
+		WatchFrame.showObjectives = nil
+		WorldMapQuestShowObjectives:SetChecked(false)
+		WorldMapQuestShowObjectives:Hide()
+		WorldMapTitleButton:Hide()
+		WorldMapBlobFrame:Hide()
+		WorldMapPOIFrame:Hide()
+
+		WorldMapQuestShowObjectives.Show = TukuiDB.dummy
+		WorldMapTitleButton.Show = TukuiDB.dummy
+		WorldMapBlobFrame.Show = TukuiDB.dummy
+		WorldMapPOIFrame.Show = TukuiDB.dummy       
+
+		WatchFrame_Update()
 	elseif event == "PLAYER_REGEN_ENABLED" then
 		WorldMapFrameSizeDownButton:Enable()
 		WorldMapFrameSizeUpButton:Enable()
+		WorldMapQuestShowObjectives.Show = WorldMapQuestShowObjectives:Show()
+		WorldMapTitleButton.Show = WorldMapTitleButton:Show()
+		WorldMapBlobFrame.Show = WorldMapBlobFrame:Show()
+		WorldMapPOIFrame.Show = WorldMapPOIFrame:Show()
+
+		WorldMapQuestShowObjectives:Show()
+		WorldMapTitleButton:Show()
+
+		WatchFrame.showObjectives = true
+		WorldMapQuestShowObjectives:SetChecked(true)
+
+		WorldMapBlobFrame:Show()
+		WorldMapPOIFrame:Show()
+
+		WatchFrame_Update()
 	end
 end
 addon:SetScript("OnEvent", OnEvent)
