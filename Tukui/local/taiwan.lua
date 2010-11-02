@@ -18,11 +18,11 @@ if TukuiDB.client == "zhTW" then
 	tukuilocal.chat_ERR_FRIEND_ONLINE_SS = "is now |cff298F00online|r"
 	tukuilocal.chat_ERR_FRIEND_OFFLINE_S = "is now |cffff0000offline|r"
 	
-	tukuilocal.chat_general = "General"
-	tukuilocal.chat_trade = "Trade"
-	tukuilocal.chat_defense = "LocalDefense"
-	tukuilocal.chat_recrutment = "GuildRecruitment"
-	tukuilocal.chat_lfg = "LookingForGroup"
+	tukuilocal.chat_general = "綜合"
+	tukuilocal.chat_trade = "交易"
+	tukuilocal.chat_defense = "本地防務"
+	tukuilocal.chat_recrutment = "公會招募"
+	tukuilocal.chat_lfg = "尋求組隊"
 	
 	tukuilocal.disband = "正在解散隊伍."
  
@@ -93,7 +93,7 @@ if TukuiDB.client == "zhTW" then
 	tukuilocal.bg_arathi = "阿拉希盆地"
 	tukuilocal.bg_eye = "暴風之眼"
 	tukuilocal.bg_alterac = "奧特蘭克山谷"
-	tukuilocal.bg_strand = "Strand of the Ancients"
+	tukuilocal.bg_strand = "遠祖灘頭"
 	tukuilocal.bg_isle = "征服之島"
  
 	tukuilocal.Slots = {
