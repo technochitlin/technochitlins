@@ -9,7 +9,7 @@ if TukuiDB.client ~= "enUS" and TukuiDB.client ~= "enGB" then return end
 ----------------------------------------------------------------------------------
 
 function TukuiDB.SPELL_FILTER(self, event, arg1)
-    if strfind(arg1,"You have unlearned") or strfind(arg1,"You have learned a new spell:") or strfind(arg1,"You have learned a new ability:") then
+    if strfind(arg1,"You have unlearned") or strfind(arg1,"You have learned a new spell:") or strfind(arg1,"You have learned a new ability:") or strfind(arg1,"Your pet has unlearned") then
         return true
     end
 end
