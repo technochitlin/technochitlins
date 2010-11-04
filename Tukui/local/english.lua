@@ -26,6 +26,8 @@ tukuilocal.chat_lfg = "LookingForGroup"
 
 tukuilocal.disband = "Disbanding group."
 
+tukuilocal.datatext_download = "Download: "
+tukuilocal.datatext_bandwidth = "Bandwidth: "
 tukuilocal.datatext_guild = "Guild"
 tukuilocal.datatext_noguild = "No Guild"
 tukuilocal.datatext_bags = "Bags: "

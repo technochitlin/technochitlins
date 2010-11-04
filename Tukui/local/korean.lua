@@ -26,6 +26,8 @@ if TukuiDB.client == "koKR" then
  
 	tukuilocal.disband = "공격대를 해체합니다."
  
+	tukuilocal.datatext_download = "Download: "
+	tukuilocal.datatext_bandwidth = "Bandwidth: "
 	tukuilocal.datatext_guild = "길드"
 	tukuilocal.datatext_noguild = "길드 없음"
 	tukuilocal.datatext_bags = "소지품: "
