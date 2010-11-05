@@ -1,5 +1,4 @@
--- for Aurora support by Haleth
-if (IsAddOnLoaded("Aurora")) then return end
+-- just some random skin, not everything is skinned atm.
 
 local function SetModifiedBackdrop(self)
 	local color = RAID_CLASS_COLORS[TukuiDB.myclass]
@@ -25,7 +24,7 @@ end
 local TukuiSkin = CreateFrame("Frame")
 TukuiSkin:RegisterEvent("ADDON_LOADED")
 TukuiSkin:SetScript("OnEvent", function(self, event, addon)
-	if IsAddOnLoaded("Skinner") then return end
+	if IsAddOnLoaded("Skinner") or IsAddOnLoaded("Aurora") then return end
 	
 	-- stuff not in Blizzard load-on-demand
 	if addon == "Tukui" then
