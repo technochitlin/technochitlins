@@ -43,7 +43,7 @@ if TukuiCF["datatext"].guild and TukuiCF["datatext"].guild > 0 then
 			if IsInGuild() then
 				self.hovered = true
 				GuildRoster()
-				local name, rank, level, zone, note, officernote, connected, status, class, zone_r, zone_g, zone_b, classc, levelc
+				
 				local online, total, gmotd = 0, GetNumGuildMembers(true), GetGuildRosterMOTD()
 				for i = 0, total do if select(9, GetGuildRosterInfo(i)) then online = online + 1 end end
 				
@@ -61,7 +61,7 @@ if TukuiCF["datatext"].guild and TukuiCF["datatext"].guild > 0 then
 							if online > 1 then GameTooltip:AddLine(format("+ %d More...", online - modules.Guild.maxguild),ttsubh.r,ttsubh.g,ttsubh.b) end
 							break
 						end
-						-- name, rank, rankIndex, level, class, zone, note, officernote, online, status, classFileName
+						
 						local name, rank, _, level, _, zone, note, officernote, connected, status, class = GetGuildRosterInfo(i)
 						if connected and name ~= UnitName'player' then
 							if GetRealZoneText() == zone then zone_r, zone_g, zone_b = 0.3, 1.0, 0.3 else zone_r, zone_g, zone_b = 0.65, 0.65, 0.65 end
