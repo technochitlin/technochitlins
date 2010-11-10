@@ -56,6 +56,19 @@ MiniMapInstanceDifficulty:ClearAllPoints()
 MiniMapInstanceDifficulty:SetParent(Minimap)
 MiniMapInstanceDifficulty:SetPoint("TOPLEFT", Minimap, "TOPLEFT", 0, 0)
 
+-- GhostFrame under minimap
+GhostFrameContentsFrame"]:SetWidth(TukuiDB.Scale(148))
+GhostFrameContentsFrame"]:ClearAllPoints()
+GhostFrameContentsFrame"]:SetPoint("CENTER")
+GhostFrameContentsFrame"].SetPoint = TukuiDB.dummy
+GhostFrame:SetFrameStrata("HIGH")
+GhostFrame:SetFrameLevel(10)
+GhostFrame:ClearAllPoints()
+GhostFrame:SetPoint("TOP", Minimap, "BOTTOM", 0, TukuiDB.Scale(-25))
+GhostFrameContentsFrameIcon:SetAlpha(0)
+GhostFrameContentsFrameText:ClearAllPoints()
+GhostFrameContentsFrameText:SetPoint("CENTER")
+
 local function UpdateLFG()
 	MiniMapLFGFrame:ClearAllPoints()
 	MiniMapLFGFrame:SetPoint("BOTTOMRIGHT", Minimap, "BOTTOMRIGHT", TukuiDB.Scale(2), TukuiDB.Scale(1))

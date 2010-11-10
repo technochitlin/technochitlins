@@ -167,17 +167,6 @@ TukuiSkin:SetScript("OnEvent", function(self, event, addon)
 		-- others
 		_G["ReadyCheckListenerFrame"]:SetAlpha(0)
 		_G["ReadyCheckFrame"]:HookScript("OnShow", function(self) if UnitIsUnit("player", self.initiator) then self:Hide() end end) -- bug fix, don't show it if initiator
-		_G["GhostFrameContentsFrame"]:SetWidth(TukuiDB.Scale(148))
-		_G["GhostFrameContentsFrame"]:ClearAllPoints()
-		_G["GhostFrameContentsFrame"]:SetPoint("CENTER")
-		_G["GhostFrameContentsFrame"].SetPoint = TukuiDB.dummy
-		_G["GhostFrame"]:SetFrameStrata("HIGH")
-		_G["GhostFrame"]:SetFrameLevel(10)
-		_G["GhostFrame"]:ClearAllPoints()
-		_G["GhostFrame"]:SetPoint("TOP", Minimap, "BOTTOM", 0, TukuiDB.Scale(-25))
-		_G["GhostFrameContentsFrameIcon"]:SetAlpha(0)
-		_G["GhostFrameContentsFrameText"]:ClearAllPoints()
-		_G["GhostFrameContentsFrameText"]:SetPoint("CENTER")
 		_G["PlayerPowerBarAlt"]:HookScript("OnShow", function(self) self:ClearAllPoints() self:SetPoint("TOP", 0, -12) end)
 	end
 	
