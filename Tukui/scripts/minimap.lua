@@ -57,10 +57,10 @@ MiniMapInstanceDifficulty:SetParent(Minimap)
 MiniMapInstanceDifficulty:SetPoint("TOPLEFT", Minimap, "TOPLEFT", 0, 0)
 
 -- GhostFrame under minimap
-GhostFrameContentsFrame"]:SetWidth(TukuiDB.Scale(148))
-GhostFrameContentsFrame"]:ClearAllPoints()
-GhostFrameContentsFrame"]:SetPoint("CENTER")
-GhostFrameContentsFrame"].SetPoint = TukuiDB.dummy
+GhostFrameContentsFrame:SetWidth(TukuiDB.Scale(148))
+GhostFrameContentsFrame:ClearAllPoints()
+GhostFrameContentsFrame:SetPoint("CENTER")
+GhostFrameContentsFrame.SetPoint = TukuiDB.dummy
 GhostFrame:SetFrameStrata("HIGH")
 GhostFrame:SetFrameLevel(10)
 GhostFrame:ClearAllPoints()
