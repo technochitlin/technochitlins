@@ -29,6 +29,6 @@ for i= 1, 12 do
 end
 
 -- hide it if needed
-if (TukuiCF.actionbar.bottomrows == 1 and TukuiCF.actionbar.rightbars < 2) then
+if (TukuiDB.lowversion and TukuiCF.actionbar.rightbars < 2) or (TukuiCF.actionbar.bottomrows == 1 and TukuiCF.actionbar.rightbars < 2) then
 	TukuiBar5:Hide()
 end

@@ -35,7 +35,13 @@ function style(self)
 	Btname:Hide()
 	Btname.Show = TukuiDB.dummy
  
-	if not _G[name.."Panel"] then 
+	if not _G[name.."Panel"] then
+		-- resize all button not matching TukuiDB.buttonsize
+		if self:GetHeight() ~= TukuiDB.buttonsize then
+			self:SetSize(TukuiDB.buttonsize, TukuiDB.buttonsize)
+		end
+
+		-- create the bg/border panel
 		local panel = CreateFrame("Frame", name.."Panel", self)
 		TukuiDB.CreatePanel(panel, TukuiDB.buttonsize, TukuiDB.buttonsize, "CENTER", self, "CENTER", 0, 0)
  
