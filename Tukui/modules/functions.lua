@@ -341,7 +341,7 @@ do
 
 	function TukuiDB.SpawnMenu(self)
 		local unit = self.unit:gsub("(.)", string.upper, 1)
-		if unit == "Targettarget" or unit == "forustarget" or unit == "pettarget" then return end
+		if unit == "Targettarget" or unit == "focustarget" or unit == "pettarget" then return end
 
 		if _G[unit.."FrameDropDown"] then
 			ToggleDropDownMenu(1, nil, _G[unit.."FrameDropDown"], "cursor")
