@@ -32,9 +32,11 @@ Kill:SetScript("OnEvent", function(self, event, addon)
 		k(TutorialFrameAlertButton)
 		
 		k(InterfaceOptionsUnitFramePanelPartyBackground)
+
+		-- make sure boss or arena frame is always disabled when running tukui
+		SetCVar("showArenaEnemyFrames", 0)
 		
 		if TukuiCF.arena.unitframes then
-			SetCVar("showArenaEnemyFrames", 0)
 			k(InterfaceOptionsUnitFramePanelArenaEnemyFrames)
 			k(InterfaceOptionsUnitFramePanelArenaEnemyCastBar)
 			k(InterfaceOptionsUnitFramePanelArenaEnemyPets)
