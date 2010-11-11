@@ -23,7 +23,7 @@ local function VehicleNumSeatIndicator()
 	elseif VehicleSeatIndicatorButton5 then
 		TukuiDB.numSeat = 5
 	elseif VehicleSeatIndicatorButton4 then
-		TukuiDB.numseat = 4
+		TukuiDB.numSeat = 4
 	elseif VehicleSeatIndicatorButton3 then
 		TukuiDB.numSeat = 3
 	elseif VehicleSeatIndicatorButton2 then
