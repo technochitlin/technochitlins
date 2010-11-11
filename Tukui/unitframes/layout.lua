@@ -518,7 +518,7 @@ local function Shared(self, unit)
 			local CPoints = {}
 			CPoints.unit = PlayerFrame.unit
 			for i = 1, 5 do
-				CPoints[i] = health:CreateTexture(nil, "OVERLAY")
+				CPoints[i] = self:CreateTexture(nil, "OVERLAY")
 				CPoints[i]:SetHeight(TukuiDB.Scale(12))
 				CPoints[i]:SetWidth(TukuiDB.Scale(12))
 				CPoints[i]:SetTexture(bubbleTex)
