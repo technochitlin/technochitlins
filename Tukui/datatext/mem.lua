@@ -41,7 +41,7 @@ if TukuiCF["datatext"].mem and TukuiCF["datatext"].mem > 0 then
 	local Total, Mem, MEMORY_TEXT, LATENCY_TEXT, Memory
 	local function RefreshMem(self)
 		Memory = {}
-		collectgarbage("collect")
+
 		UpdateAddOnMemoryUsage()
 		Total = 0
 		for i = 1, GetNumAddOns() do
