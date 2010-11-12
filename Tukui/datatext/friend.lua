@@ -15,7 +15,7 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 	Text:SetFont(TukuiCF.media.font, TukuiCF["datatext"].fontsize)
 	TukuiDB.PP(TukuiCF["datatext"].friends, Text)
 	
-	local menuFrame = CreateFrame("Frame", "MinimapRightClickMenu", UIParent, "UIDropDownMenuTemplate")
+	local menuFrame = CreateFrame("Frame", "TukuiFriendRightClickMenu", UIParent, "UIDropDownMenuTemplate")
 	local menuList = {
 		{ text = "Select an Option", isTitle = true,notCheckable=true},
 		{ text = "Invite", hasArrow = true,notCheckable=true,
