@@ -14,6 +14,41 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 	local Text  = TukuiInfoLeft:CreateFontString(nil, "OVERLAY")
 	Text:SetFont(TukuiCF.media.font, TukuiCF["datatext"].fontsize)
 	TukuiDB.PP(TukuiCF["datatext"].friends, Text)
+	
+	local menuFrame = CreateFrame("Frame", "MinimapRightClickMenu", UIParent, "UIDropDownMenuTemplate")
+	local menuList = {
+		{ text = "Select an Option", isTitle = true,notCheckable=true},
+		{ text = "Invite", hasArrow = true,notCheckable=true,
+			menuList = {
+				{ text = "Option 3", func = function() print("You've chosen option 3"); end }
+			}
+		},
+		{ text = "Whisper", hasArrow = true,notCheckable=true,
+			menuList = {
+				{ text = "Option 4", func = function() print("You've chosen option 4"); end }
+			}
+		}
+	}
+ 
+	local function inviteClick(self, arg1, arg2, checked)
+		menuFrame:Hide()
+		InviteUnit(arg1)
+	end
+ 
+	local function whisperClick(self,arg1,arg2,checked)
+		menuFrame:Hide() 
+		SetItemRef( "player:"..arg1, ("|Hplayer:%1$s|h[%1$s]|h"):format(arg1), "LeftButton" )		 
+	end
+ 
+	local menuCountWhispers = 0
+	local menuCountInvites = 0
+ 
+	Stat:SetScript("OnMouseUp", function(self, btn)
+		if btn == "RightButton" then
+			GameTooltip:Hide()
+			EasyMenu(menuList, menuFrame, "cursor", 0, 0, "MENU", 2)
+		end
+	end)	
 
 	local function Update(self, event)
 			local online, total = 0, GetNumFriends()
@@ -43,11 +78,15 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 	Stat:RegisterEvent("BN_CONNECTED")
 	Stat:RegisterEvent("BN_DISCONNECTED")
 	Stat:RegisterEvent("CHAT_MSG_SYSTEM")
-	Stat:SetScript("OnMouseDown", function() ToggleFriendsFrame(1) end)
+	Stat:SetScript("OnMouseDown", function(self, btn) if btn == "LeftButton" then ToggleFriendsFrame(1) end end)
 	Stat:SetScript("OnEnter", function(self)
 		if not InCombatLockdown() then
 			ShowFriends()
-			self.hovered = true
+			menuCountWhispers = 0
+			menuCountInvites = 0
+			menuList[2].menuList = {}
+			menuList[3].menuList = {}
+
 			local online, total = 0, GetNumFriends()
 			local name, level, class, zone, connected, status, note, classc, levelc, zone_r, zone_g, zone_b, grouped, isAFK, isDND
 			for i = 0, total do if select(5, GetFriendInfo(i)) then online = online + 1 end end
@@ -78,7 +117,12 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 						classc, levelc = (CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS)[class], GetQuestDifficultyColor(level)
 						if UnitInParty(name) or UnitInRaid(name) then grouped = "|cffaaaaaa*|r" else grouped = "" end
 						GameTooltip:AddDoubleLine(format("|cff%02x%02x%02x%d|r %s%s%s",levelc.r*255,levelc.g*255,levelc.b*255,level,name,grouped," "..status),zone,classc.r,classc.g,classc.b,zone_r,zone_g,zone_b)
-						if self.altdown and note then GameTooltip:AddLine("  "..note,ttsubh.r,ttsubh.g,ttsubh.b,1) end
+						
+						menuCountInvites = menuCountInvites + 1
+						menuCountWhispers = menuCountWhispers + 1
+ 
+						menuList[2].menuList[menuCountInvites] = {text = format("|cff%02x%02x%02x%d|r |cff%02x%02x%02x%s|r",levelc.r*255,levelc.g*255,levelc.b*255,level,classc.r*255,classc.g*255,classc.b*255,name), arg1 = name,notCheckable=true, func = inviteClick}
+						menuList[3].menuList[menuCountWhispers] = {text = format("|cff%02x%02x%02x%d|r |cff%02x%02x%02x%s|r",levelc.r*255,levelc.g*255,levelc.b*255,level,classc.r*255,classc.g*255,classc.b*255,name), arg1 = name,notCheckable=true, func = whisperClick}
 					end
 				end
 				if BNonline > 0 then
@@ -86,7 +130,15 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 					GameTooltip:AddLine("Battle.net")
 					for i = 1, BNtotal do
 						presenceID, givenName, surname, toonName, toonID, client, isOnline, _, isAFK, isDND = BNGetFriendInfo(i)
+						local realID = (BATTLENET_NAME_FORMAT):format(givenName, surname)
 						if not isOnline then break end
+						
+						menuCountWhispers = menuCountWhispers + 1
+						
+						local playerRealm = GetRealmName()
+						local playerFaction, localeFaction = UnitFactionGroup("player")
+						if playerFaction == "Horde" then playerFaction = 0 else playerFaction = 1 end
+						
 						if(isAFK) then
 							status = "[AFK]"
 						else 
@@ -110,7 +162,21 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 								if GetRealmName() == realmName then realm_r, realm_g, realm_b = 0.3, 1.0, 0.3 else realm_r, realm_g, realm_b = 0.65, 0.65, 0.65 end
 								GameTooltip:AddDoubleLine("  "..zoneName, realmName, zone_r, zone_g, zone_b, realm_r, realm_g, realm_b)
 							end
+							
+							if playerRealm == realmName then
+								if playerFaction == faction then
+										if UnitInParty(toonName) or UnitInRaid(toonName) then
+											grouped = "|cffaaaaaa*|r"
+										else
+											grouped = ""
+											menuCountInvites = menuCountInvites + 1
+											menuList[2].menuList[menuCountInvites] = {text = format("|cff%02x%02x%02x%d|r |cff%02x%02x%02x%s|r",levelc.r*255,levelc.g*255,levelc.b*255,level,classc.r*255,classc.g*255,classc.b*255,toonName), arg1 = toonName,notCheckable=true, func = inviteClick}
+										end
+								end
+							end
+							menuList[3].menuList[menuCountWhispers] = {text = realID, arg1 = realID,notCheckable=true, func = whisperClick}							
 						else
+							menuList[3].menuList[menuCountWhispers] = {text = realID, arg1 = realID,notCheckable=true, func = whisperClick}
 							GameTooltip:AddDoubleLine("|cffeeeeee"..client.." ("..toonName..")|r", "|cffeeeeee"..givenName.." "..surname.."|r")
 						end
 					end
