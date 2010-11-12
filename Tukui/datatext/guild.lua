@@ -36,13 +36,13 @@ if TukuiCF["datatext"].guild and TukuiCF["datatext"].guild > 0 then
 	
 	local menuFrame = CreateFrame("Frame", "TukuiGuildRightClickMenu", UIParent, "UIDropDownMenuTemplate")
 	local menuList = {
-		{ text = "Select an Option", isTitle = true,notCheckable=true},
-		{ text = "Invite", hasArrow = true,notCheckable=true,
+		{ text = GAMEOPTIONS_MENU, isTitle = true,notCheckable=true},
+		{ text = INVITE, hasArrow = true,notCheckable=true,
 			menuList = {
 				{ text = "Option 3", func = function() print("You've chosen option 3"); end }
 			}
 		},
-		{ text = "Whisper", hasArrow = true,notCheckable=true,
+		{ text = WHISPER, hasArrow = true,notCheckable=true,
 			menuList = {
 				{ text = "Option 4", func = function() print("You've chosen option 4"); end }
 			}
