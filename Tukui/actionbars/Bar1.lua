@@ -45,8 +45,6 @@ bar:RegisterEvent("PLAYER_ENTERING_WORLD")
 bar:RegisterEvent("KNOWN_CURRENCY_TYPES_UPDATE")
 bar:RegisterEvent("CURRENCY_DISPLAY_UPDATE")
 bar:RegisterEvent("BAG_UPDATE")
-bar:RegisterEvent("PLAYER_TALENT_UPDATE")
-bar:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
 bar:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
 		local button
