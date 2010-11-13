@@ -84,10 +84,7 @@ bar:SetScript("OnEvent", function(self, event, ...)
 				button:SetPoint("LEFT", previous, "RIGHT", TukuiDB.buttonspacing, 0)
 			end
 		end
-	elseif event == "PLAYER_TALENT_UPDATE" or event == "ACTIVE_TALENT_GROUP_CHANGED" then
-		if not InCombatLockdown() then -- Just to be safe
-			RegisterStateDriver(self, "page", GetBar())
-		end
+
 	else
 		MainMenuBar_OnEvent(self, event, ...)
 	end
