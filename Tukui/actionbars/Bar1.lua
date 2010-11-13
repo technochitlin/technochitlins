@@ -84,7 +84,6 @@ bar:SetScript("OnEvent", function(self, event, ...)
 				button:SetPoint("LEFT", previous, "RIGHT", TukuiDB.buttonspacing, 0)
 			end
 		end
-
 	else
 		MainMenuBar_OnEvent(self, event, ...)
 	end

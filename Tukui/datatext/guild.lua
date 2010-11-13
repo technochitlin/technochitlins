@@ -61,13 +61,6 @@ if TukuiCF["datatext"].guild and TukuiCF["datatext"].guild > 0 then
  
 	local menuCountWhispers = 0
 	local menuCountInvites = 0
- 
-	Stat:SetScript("OnMouseUp", function(self, btn)
-		if btn == "RightButton" then
-			GameTooltip:Hide()
-			EasyMenu(menuList, menuFrame, "cursor", 0, 0, "MENU", 2)
-		end
-	end)
 	
 	Stat:RegisterEvent("GUILD_ROSTER_UPDATE")
 	Stat:RegisterEvent("PLAYER_GUILD_UPDATE")
@@ -135,7 +128,10 @@ if TukuiCF["datatext"].guild and TukuiCF["datatext"].guild > 0 then
 	Stat:SetScript("OnMouseDown", function(self, btn) 
 		if btn == "LeftButton" then
 			if not GuildFrame and IsInGuild() then LoadAddOn("Blizzard_GuildUI") end
-			GuildFrame_Toggle() 
+			GuildFrame_Toggle()
+		elseif btn == "RightButton" then
+			GameTooltip:Hide()
+			EasyMenu(menuList, menuFrame, "cursor", 0, 0, "MENU", 2)
 		end	
 	end)
 	Stat:SetScript("OnEvent", Update)
