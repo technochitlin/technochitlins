@@ -79,6 +79,7 @@ local function Shared(self, unit)
     name:SetPoint("LEFT", health, 3, 0)
 	name:SetFont(font2, 12*TukuiDB.raidscale, "THINOUTLINE")
 	name:SetShadowOffset(1, -1)
+	name.frequentUpdates = 0.2
 	self:Tag(name, "[Tukui:namemedium]")
 	self.Name = name
 	
