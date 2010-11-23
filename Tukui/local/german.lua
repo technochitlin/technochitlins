@@ -27,7 +27,7 @@ if TukuiDB.client == "deDE" then
 	tukuilocal.disband = "Gruppe wird aufgelöst."  
  
 	tukuilocal.datatext_download = "Download: "
-	tukuilocal.datatext_bandwidth = "Bandwidth: "
+	tukuilocal.datatext_bandwidth = "Bandbreite: "
 	tukuilocal.datatext_guild = "Gilde"
 	tukuilocal.datatext_noguild = "Keine Gilde"
 	tukuilocal.datatext_bags = "Tasche: "
