@@ -312,6 +312,12 @@ end
 do
 	if TukuiCF["unitframes"].enable ~= true then return end
 	
+	TukuiDB.updateAllElements = function(frame)
+		for _, v in ipairs(frame.__elements) do
+			v(frame, "UpdateElement", frame.unit)
+		end
+	end
+	
 	local SetUpAnimGroup = function(self)
 		self.anim = self:CreateAnimationGroup("Flash")
 		self.anim.fadein = self.anim:CreateAnimation("ALPHA", "FadeIn")

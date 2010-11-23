@@ -920,6 +920,9 @@ local function Shared(self, unit)
 				self.Castbar.Time = castbar.time
 			end
 		end
+		
+		-- update pet name, this should fix "UNKNOWN" pet names on pet unit.
+		self:RegisterEvent("UNIT_PET", TukuiDB.UpdatePetInfo)
 	end
 
 

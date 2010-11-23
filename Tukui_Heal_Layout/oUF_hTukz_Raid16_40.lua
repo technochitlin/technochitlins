@@ -95,7 +95,7 @@ local function Shared(self, unit)
 	local name = panel:CreateFontString(nil, "OVERLAY")
     name:SetPoint("TOP") name:SetPoint("BOTTOM") name:SetPoint("LEFT") name:SetPoint("RIGHT")
 	name:SetFont(font2, 12*TukuiCF["unitframes"].gridscale*TukuiDB.raidscale)
-	name.frequentUpdates = 0.2
+	--name.frequentUpdates = 0.2
 	self:Tag(name, "[Tukui:getnamecolor][Tukui:nameshort]")
 	self.Name = name
 	
@@ -209,6 +209,11 @@ local function Shared(self, unit)
 		
 		self.RaidDebuffs = RaidDebuffs
     end
+	
+	-- execute an update on every raids unit if party or raid member changed
+	-- should fix issues with names/symbols/etc not updating introduced with 4.0.3 patch
+	self:RegisterEvent("PARTY_MEMBERS_CHANGED", TukuiDB.updateAllElements)
+	self:RegisterEvent("RAID_ROSTER_UPDATE", TukuiDB.updateAllElements)
 	
 	return self
 end
