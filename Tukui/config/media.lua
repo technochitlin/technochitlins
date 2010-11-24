@@ -5,14 +5,19 @@ TukuiCF["media"] = {
 	["dmgfont"] = [[Interface\AddOns\Tukui\media\fonts\combat_font.ttf]], -- general font of dmg / sct
 	
 	-- fonts (RUSSIAN ONLY)
-	["ru_font"] = [=[fonts\ARIALN.ttf]=], -- general font of tukui
-	["ru_uffont"] = [[fonts\ARIALN.ttf]], -- general font of unitframes
-	["ru_dmgfont"] = [[fonts\ARIALN.ttf]], -- general font of dmg / sct
+	["ru_font"] = [=[Fonts\ARIALN.TTF]=], -- general font of tukui
+	["ru_uffont"] = [[Fonts\ARIALN.TTF]], -- general font of unitframes
+	["ru_dmgfont"] = [[Fonts\ARIALN.TTF]], -- general font of dmg / sct
 	
 	-- fonts (TAIWAN ONLY)
-	["tw_font"] = [=[fonts\bLEI00D.ttf]=], -- general font of tukui
-	["tw_uffont"] = [[fonts\bLEI00D.ttf]], -- general font of unitframes
-	["tw_dmgfont"] = [[fonts\bLEI00D.ttf]], -- general font of dmg / sct
+	["tw_font"] = [=[Fonts\bLEI00D.ttf]=], -- general font of tukui
+	["tw_uffont"] = [[Fonts\bLEI00D.ttf]], -- general font of unitframes
+	["tw_dmgfont"] = [[Fonts\bLEI00D.ttf]], -- general font of dmg / sct
+	
+	-- fonts (KOREAN ONLY)
+	["kr_font"] = [=[Fonts\2002.TTF]=], -- general font of tukui
+	["kr_uffont"] = [[Fonts\2002.TTF]], -- general font of unitframes
+	["kr_dmgfont"] = [[Fonts\2002.TTF]], -- general font of dmg / sct
 	
 	-- textures
 	["normTex"] = [[Interface\AddOns\Tukui\media\textures\normTex]], -- texture used for tukui healthbar/powerbar/etc
