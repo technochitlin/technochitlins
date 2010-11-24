@@ -1,8 +1,18 @@
 TukuiCF["media"] = {
-	-- fonts
+	-- fonts (ENGLISH, FRENCH, DEUTCH, SPANISH)
 	["font"] = [=[Interface\Addons\Tukui\media\fonts\normal_font.ttf]=], -- general font of tukui
 	["uffont"] = [[Interface\AddOns\Tukui\media\fonts\uf_font.ttf]], -- general font of unitframes
 	["dmgfont"] = [[Interface\AddOns\Tukui\media\fonts\combat_font.ttf]], -- general font of dmg / sct
+	
+	-- fonts (RUSSIAN ONLY)
+	["ru_font"] = [=[fonts\ARIALN.ttf]=], -- general font of tukui
+	["ru_uffont"] = [[fonts\ARIALN.ttf]], -- general font of unitframes
+	["ru_dmgfont"] = [[fonts\ARIALN.ttf]], -- general font of dmg / sct
+	
+	-- fonts (TAIWAN ONLY)
+	["tw_font"] = [=[fonts\bLEI00D.ttf]=], -- general font of tukui
+	["tw_uffont"] = [[fonts\bLEI00D.ttf]], -- general font of unitframes
+	["tw_dmgfont"] = [[fonts\bLEI00D.ttf]], -- general font of dmg / sct
 	
 	-- textures
 	["normTex"] = [[Interface\AddOns\Tukui\media\textures\normTex]], -- texture used for tukui healthbar/powerbar/etc

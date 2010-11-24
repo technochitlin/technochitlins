@@ -14,16 +14,18 @@ if TukuiCF["actionbar"].bottomrows == 2 and TukuiCF["actionbar"].rightbars > 1 a
 	TukuiCF["actionbar"].rightbars = 1
 end
 
-------------------------------------------------------------------------
--- overwrite font for some language
-------------------------------------------------------------------------
+--------------------------------------------------------------------------
+-- overwrite font for some language, because default font are incompatible
+--------------------------------------------------------------------------
 
 if TukuiDB.client == "ruRU" then
-	TukuiCF["media"].uffont = [[fonts\ARIALN.ttf]]
+	TukuiCF["media"].uffont = TukuiCF["media"].ru_uffont
+	TukuiCF["media"].font = TukuiCF["media"].ru_font
+	TukuiCF["media"].dmgfont = TukuiCF["media"].ru_dmgfont
 elseif TukuiDB.client == "zhTW" or TukuiDB.client == "zhCN" then
-	TukuiCF["media"].uffont = [[fonts\bLEI00D.ttf]]
-	TukuiCF["media"].font = [[fonts\bLEI00D.ttf]]
-	TukuiCF["media"].dmgfont = [[fonts\bLEI00D.ttf]]
+	TukuiCF["media"].uffont = TukuiCF["media"].tw_uffont
+	TukuiCF["media"].font = TukuiCF["media"].tw_font
+	TukuiCF["media"].dmgfont = TukuiCF["media"].tw_dmgfont
 end
 
 ------------------------------------------------------------------------
