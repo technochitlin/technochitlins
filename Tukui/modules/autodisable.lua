@@ -22,7 +22,7 @@ if TukuiDB.client == "ruRU" then
 	TukuiCF["media"].uffont = TukuiCF["media"].ru_uffont
 	TukuiCF["media"].font = TukuiCF["media"].ru_font
 	TukuiCF["media"].dmgfont = TukuiCF["media"].ru_dmgfont
-elseif TukuiDB.client == "zhTW" or TukuiDB.client == "zhCN" then
+elseif TukuiDB.client == "zhTW" or TukuiDB.client == "koKR" then
 	TukuiCF["media"].uffont = TukuiCF["media"].tw_uffont
 	TukuiCF["media"].font = TukuiCF["media"].tw_font
 	TukuiCF["media"].dmgfont = TukuiCF["media"].tw_dmgfont
