@@ -4,10 +4,10 @@ TukuiCF["media"] = {
 	["uffont"] = [[Interface\AddOns\Tukui\media\fonts\uf_font.ttf]], -- general font of unitframes
 	["dmgfont"] = [[Interface\AddOns\Tukui\media\fonts\combat_font.ttf]], -- general font of dmg / sct
 	
-	-- fonts (RUSSIAN/GERMAN ONLY)
-	["ruDE_font"] = [=[Interface\Addons\Tukui\media\fonts\normal_font.ttf]=], -- general font of tukui
-	["ruDE_uffont"] = [[Fonts\ARIALN.TTF]], -- general font of unitframes
-	["ruDE_dmgfont"] = [[Fonts\ARIALN.TTF]], -- general font of dmg / sct
+	-- fonts (RUSSIAN)
+	["ru_font"] = [=[Interface\Addons\Tukui\media\fonts\normal_font.ttf]=], -- general font of tukui
+	["ru_uffont"] = [[Fonts\ARIALN.TTF]], -- general font of unitframes
+	["ru_dmgfont"] = [[Fonts\ARIALN.TTF]], -- general font of dmg / sct
 	
 	-- fonts (TAIWAN ONLY)
 	["tw_font"] = [=[Fonts\bLEI00D.ttf]=], -- general font of tukui

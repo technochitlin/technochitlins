@@ -18,7 +18,7 @@ end
 -- overwrite font for some language, because default font are incompatible
 --------------------------------------------------------------------------
 
-if TukuiDB.client == "ruRU" or TukuiDB.client == "deDE" then
+if TukuiDB.client == "ruRU" then
 	TukuiCF["media"].uffont = TukuiCF["media"].ruDE_uffont
 	TukuiCF["media"].font = TukuiCF["media"].ruDE_font
 	TukuiCF["media"].dmgfont = TukuiCF["media"].ruDE_dmgfont
