@@ -18,10 +18,10 @@ end
 -- overwrite font for some language, because default font are incompatible
 --------------------------------------------------------------------------
 
-if TukuiDB.client == "ruRU" then
-	TukuiCF["media"].uffont = TukuiCF["media"].ru_uffont
-	TukuiCF["media"].font = TukuiCF["media"].ru_font
-	TukuiCF["media"].dmgfont = TukuiCF["media"].ru_dmgfont
+if TukuiDB.client == "ruRU" or TukuiDB.client == "deDE" then
+	TukuiCF["media"].uffont = TukuiCF["media"].ruDE_uffont
+	TukuiCF["media"].font = TukuiCF["media"].ruDE_font
+	TukuiCF["media"].dmgfont = TukuiCF["media"].ruDE_dmgfont
 elseif TukuiDB.client == "zhTW" then
 	TukuiCF["media"].uffont = TukuiCF["media"].tw_uffont
 	TukuiCF["media"].font = TukuiCF["media"].tw_font
