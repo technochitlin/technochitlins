@@ -102,11 +102,7 @@ local updatePlate = function(self)
 	self.highlight:SetAllPoints(self.healthBar)
 
 	local nameString = self.oldname:GetText()
-	if string.len(nameString) < 22 then
-		self.name:SetText(nameString)
-	else
-		self.name:SetFormattedText(nameString:sub(0, 19).." ...")
-	end
+	self.name:SetText(nameString)
 
 	local level, elite, mylevel = tonumber(self.level:GetText()), self.elite:IsShown(), UnitLevel("player")
 	self.level:ClearAllPoints()
