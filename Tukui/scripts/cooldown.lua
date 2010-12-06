@@ -45,7 +45,7 @@ local function getTimeText(s)
 	--format text as days
 	else
 		local days = round(s/DAY)
-		return format('|cffcccccc%dd|r', days), days > 1 and (s - (days*DAY - HALFDAYISH)) or (s - DAYISH)
+		return format('|cffcccccc%dh|r', days), days > 1 and (s - (days*DAY - HALFDAYISH)) or (s - DAYISH)
 	end
 end
 
