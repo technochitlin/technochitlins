@@ -25,6 +25,7 @@ TukuiDB.remindbuffs = {
 		5118, -- cheetah
 		13159, -- pack
 		20043, -- wild
+		82661, -- fox
 	},
 	MAGE = {
 		7302, -- frost armor
