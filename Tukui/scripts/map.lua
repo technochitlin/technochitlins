@@ -23,8 +23,24 @@ movebutton:SetBackdrop( {
 	bgFile = "Interface\\AddOns\\Tukui\\media\\textures\\cross",
 })
 movebutton:EnableMouse(true)
-movebutton:SetScript("OnMouseDown", OnMouseDown)
-movebutton:SetScript("OnMouseUp", OnMouseUp)
+
+movebutton:SetScript("OnMouseDown", function()
+	local maplock = GetCVar("advancedWorldMap")
+	if maplock ~= "1" then return end
+	WorldMapScreenAnchor:ClearAllPoints()
+	WorldMapFrame:ClearAllPoints()
+	WorldMapFrame:StartMoving();
+end)
+
+movebutton:SetScript("OnMouseUp", function()
+	local maplock = GetCVar("advancedWorldMap")
+	if maplock ~= "1" then return end
+	WorldMapFrame:StopMovingOrSizing()
+	WorldMapScreenAnchor:StartMoving()
+	WorldMapScreenAnchor:SetPoint("TOPLEFT", WorldMapFrame)
+	WorldMapScreenAnchor:StopMovingOrSizing()
+end)
+
 
 -- look if map is not locked
 local MoveMap = GetCVarBool("advancedWorldMap")
@@ -159,23 +175,6 @@ mapbg:SetScript("OnShow", function(self)
 	end
 	self:SetScript("OnShow", function() end)
 end)
-
-local function OnMouseDown()
-	local maplock = GetCVar("advancedWorldMap")
-	if maplock ~= "1" then return end
-	WorldMapScreenAnchor:ClearAllPoints()
-	WorldMapFrame:ClearAllPoints()
-	WorldMapFrame:StartMoving();
-end
-
-local function OnMouseUp()
-	local maplock = GetCVar("advancedWorldMap")
-	if maplock ~= "1" then return end
-	WorldMapFrame:StopMovingOrSizing()
-	WorldMapScreenAnchor:StartMoving()
-	WorldMapScreenAnchor:SetPoint("TOPLEFT", WorldMapFrame)
-	WorldMapScreenAnchor:StopMovingOrSizing()
-end
 
 local addon = CreateFrame('Frame')
 addon:RegisterEvent('PLAYER_ENTERING_WORLD')
