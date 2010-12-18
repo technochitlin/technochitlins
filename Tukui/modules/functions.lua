@@ -89,6 +89,15 @@ function TukuiDB.CreateShadow(f)
 	f.shadow = shadow
 end
 
+TukuiDB.SetFontString = function(parent, fontName, fontHeight, fontStyle)
+	local fs = parent:CreateFontString(nil, "OVERLAY")
+	fs:SetFont(fontName, fontHeight, fontStyle)
+	fs:SetJustifyH("LEFT")
+	fs:SetShadowColor(0, 0, 0)
+	fs:SetShadowOffset(1.25, -1.25)
+	return fs
+end
+
 function TukuiDB.Kill(object)
 	if object.UnregisterAllEvents then
 		object:UnregisterAllEvents()
@@ -363,15 +372,6 @@ do
 
 	function TukuiDB.PostUpdatePower(element, unit, min, max)
 		element:GetParent().Health:SetHeight(max ~= 0 and 20 or 22)
-	end
-
-	TukuiDB.SetFontString = function(parent, fontName, fontHeight, fontStyle)
-		local fs = parent:CreateFontString(nil, "OVERLAY")
-		fs:SetFont(fontName, fontHeight, fontStyle)
-		fs:SetJustifyH("LEFT")
-		fs:SetShadowColor(0, 0, 0)
-		fs:SetShadowOffset(1.25, -1.25)
-		return fs
 	end
 
 	local ShortValue = function(value)
