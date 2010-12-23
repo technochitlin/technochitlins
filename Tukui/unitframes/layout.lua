@@ -1204,19 +1204,21 @@ local function Shared(self, unit)
 			self.Buffs = buffs
 		end
 
-		-- create debuff for both arena and boss units
-		local debuffs = CreateFrame("Frame", nil, self)
-		debuffs:SetHeight(26)
-		debuffs:SetWidth(200)
-		debuffs:SetPoint('LEFT', self, 'RIGHT', TukuiDB.Scale(4), 0)
-		debuffs.size = 26
-		debuffs.num = 5
-		debuffs.spacing = 2
-		debuffs.initialAnchor = 'LEFT'
-		debuffs["growth-x"] = "RIGHT"
-		debuffs.PostCreateIcon = TukuiDB.PostCreateAura
-		debuffs.PostUpdateIcon = TukuiDB.PostUpdateAura
-		self.Debuffs = debuffs	
+		-- create debuff for both arena units
+		if (unit and unit:find("arena%d")) then
+			local debuffs = CreateFrame("Frame", nil, self)
+			debuffs:SetHeight(26)
+			debuffs:SetWidth(200)
+			debuffs:SetPoint('LEFT', self, 'RIGHT', TukuiDB.Scale(4), 0)
+			debuffs.size = 26
+			debuffs.num = 5
+			debuffs.spacing = 2
+			debuffs.initialAnchor = 'LEFT'
+			debuffs["growth-x"] = "RIGHT"
+			debuffs.PostCreateIcon = TukuiDB.PostCreateAura
+			debuffs.PostUpdateIcon = TukuiDB.PostUpdateAura
+			self.Debuffs = debuffs	
+		end
 				
 		-- trinket feature via trinket plugin
 		if (TukuiCF.arena.unitframes) and (unit and unit:find('arena%d')) then
@@ -1384,6 +1386,15 @@ if db.showboss then
 			boss[i]:SetPoint('BOTTOM', boss[i-1], 'TOP', 0, 10)             
 		end
 		boss[i]:SetSize(TukuiDB.Scale(200), TukuiDB.Scale(29))
+		
+		--Special PowerBar for Boss frames
+		local pf = _G["Boss"..i.."TargetFramePowerBarAlt"]
+		pf:ClearAllPoints()
+		pf:SetPoint("LEFT", _G["oUF_Boss"..i], "RIGHT", 10, 0)
+		pf:SetParent(_G["oUF_Boss"..i])
+		pf.ClearAllPoints = TukuiDB.dummy
+		pf.SetPoint = TukuiDB.dummy
+		pf.SetParent = TukuiDB.dummy
 	end
 end
 
