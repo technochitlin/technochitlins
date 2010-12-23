@@ -1204,7 +1204,7 @@ local function Shared(self, unit)
 			self.Buffs = buffs
 		end
 
-		-- create debuff for both arena units
+		-- create debuff for arena units
 		if (unit and unit:find("arena%d")) then
 			local debuffs = CreateFrame("Frame", nil, self)
 			debuffs:SetHeight(26)
