@@ -194,6 +194,7 @@ local function Shared(self, unit)
 
 			-- custom info (low mana warning)
 			FlashInfo = CreateFrame("Frame", "FlashInfo", self)
+			FlashInfo:SetFrameStrata("HIGH")
 			FlashInfo:SetScript("OnUpdate", TukuiDB.UpdateManaLevel)
 			FlashInfo.parent = self
 			FlashInfo:SetToplevel(true)

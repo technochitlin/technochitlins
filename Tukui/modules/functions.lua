@@ -831,6 +831,9 @@ do
 	end
 
 	local delay = 0
+
+	local ifire = GetSpellInfo(588)
+	local iwill = GetSpellInfo(73413)
 	
 	TukuiDB.UpdateManaLevel = function(self, elapsed)
 		delay = delay + elapsed
@@ -843,8 +846,21 @@ do
 			self.ManaLevel:SetText("|cffaf5050"..tukuilocal.unitframes_ouf_lowmana.."|r")
 			Flash(self, 0.3)
 		else
-			self.ManaLevel:SetText()
 			StopFlash(self)
+
+			-- need this for armor swap in arena
+			if TukuiDB.myclass == "PRIEST" then
+				if UnitBuff("player", ifire) then
+					self.ManaLevel:SetText(ifire)
+				elseif UnitBuff("player", iwill) then
+					self.ManaLevel:SetText(iwill)
+				else
+					self.ManaLevel:SetText()
+				end
+			else
+				self.ManaLevel:SetText()
+			end
+			
 		end
 	end
 
