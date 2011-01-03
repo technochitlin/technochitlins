@@ -2,14 +2,19 @@ local db = TukuiCF["merchant"]
 
 local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function()
-	if db.sellgrays then
+	if db.sellgrays or db.sellmisc then
 		local c = 0
 		for b=0,4 do
 			for s=1,GetContainerNumSlots(b) do
-				local l = GetContainerItemLink(b, s)
-				if l then
+				local l,lid = GetContainerItemLink(b, s), GetContainerItemID(b, s)
+				if l and lid then
 					local p = select(11, GetItemInfo(l))*select(2, GetContainerItemInfo(b, s))
-					if select(3, GetItemInfo(l))==0 then
+					if db.sellgrays and select(3, GetItemInfo(l))==0 then
+						UseContainerItem(b, s)
+						PickupMerchantItem()
+						c = c+p
+					end
+					if db.sellmisc and db.filter[ lid ] then
 						UseContainerItem(b, s)
 						PickupMerchantItem()
 						c = c+p
