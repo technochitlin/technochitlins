@@ -26,7 +26,11 @@ local NeedBackdropBorderRefresh = false
 
 hooksecurefunc("GameTooltip_SetDefaultAnchor", function(self, parent)
 	if db.cursor == true then
-		self:SetOwner(parent, "ANCHOR_CURSOR")
+		if IsAddonLoaded("Tukui_Heal_Layout") and parent ~= UIParent then
+			self:SetOwner(parent, "ANCHOR_NONE")
+		else
+			self:SetOwner(parent, "ANCHOR_CURSOR")
+		end
 	else
 		self:SetOwner(parent, "ANCHOR_NONE")
 		if InCombatLockdown() and db.hidecombat == true then
@@ -45,6 +49,13 @@ hooksecurefunc("GameTooltip_SetDefaultAnchor", function(self, parent)
 end)
 
 GameTooltip:HookScript("OnUpdate",function(self, ...)
+	if self:GetAnchorType() == "ANCHOR_CURSOR" then
+		local x, y = GetCursorPosition()
+		local scale = self:GetEffectiveScale()
+		self:ClearAllPoints()
+		self:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", (x / scale + (15)), (y / scale + (7)))
+	end
+
 	if self:GetAnchorType() == "ANCHOR_CURSOR" and NeedBackdropBorderRefresh == true and db.cursor ~= true then
 		-- h4x for world object tooltip border showing last border color 
 		-- or showing background sometime ~blue :x
