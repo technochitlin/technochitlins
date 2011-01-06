@@ -1116,7 +1116,35 @@ end
 
 
 function Stuffing:SortBags()
-	if (UnitAffectingCombat("player")) then return end;
+	if (UnitAffectingCombat("player")) then return end
+	
+	local free
+	local total = 0
+	local bagtypeforfree
+	
+	if StuffingFrameBank and StuffingFrameBank:IsShown() then
+		for i = 5, 11 do
+			free, bagtypeforfree = GetContainerNumFreeSlots(i)
+			if bagtypeforfree == 0 then			
+				total = free + total
+			end
+		end
+		
+		total = select(1, GetContainerNumFreeSlots(-1)) + total
+	else
+		for i = 0, 4 do
+			free, bagtypeforfree = GetContainerNumFreeSlots(i)
+			if bagtypeforfree == 0 then			
+				total = free + total
+			end
+		end
+	end
+
+	if total == 0 then
+		print("|cffff0000"..ERROR_CAPS.." - "..ERR_INV_FULL.."|r")
+		return	
+	end
+	
 	local bs = self.sortBags
 	if #bs < 1 then
 		Print (tukuilocal.bags_nothingsort)
