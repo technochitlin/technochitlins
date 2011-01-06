@@ -184,6 +184,28 @@ local function Shared(self, unit)
 		end
 
 		if (unit == "player") then
+			-- alt power bar
+			local AltPowerBar = CreateFrame("StatusBar", "TukuiAltPowerBar", self.Health)
+			AltPowerBar:SetFrameLevel(self.Health:GetFrameLevel() + 1)
+			AltPowerBar:SetHeight(5)
+			AltPowerBar:SetStatusBarTexture(TukuiCF.media.normTex)
+			AltPowerBar:GetStatusBarTexture():SetHorizTile(false)
+			AltPowerBar:SetStatusBarColor(1, 0, 0)
+
+			AltPowerBar:SetPoint("LEFT")
+			AltPowerBar:SetPoint("RIGHT")
+			AltPowerBar:SetPoint("TOP", self.Health, "TOP")
+			
+			AltPowerBar:SetBackdrop({
+			  bgFile = TukuiCF["media"].blank, 
+			  edgeFile = TukuiCF["media"].blank, 
+			  tile = false, tileSize = 0, edgeSize = 1, 
+			  insets = { left = 0, right = 0, top = 0, bottom = TukuiDB.Scale(-1)}
+			})
+			AltPowerBar:SetBackdropColor(0, 0, 0)
+
+			self.AltPowerBar = AltPowerBar
+			
 			-- combat icon
 			local Combat = health:CreateTexture(nil, "OVERLAY")
 			Combat:SetHeight(TukuiDB.Scale(19))
@@ -193,7 +215,7 @@ local function Shared(self, unit)
 			self.Combat = Combat
 
 			-- custom info (low mana warning)
-			FlashInfo = CreateFrame("Frame", "FlashInfo", self)
+			FlashInfo = CreateFrame("Frame", "TukuiFlashInfo", self)
 			FlashInfo:SetScript("OnUpdate", TukuiDB.UpdateManaLevel)
 			FlashInfo.parent = self
 			FlashInfo:SetToplevel(true)
