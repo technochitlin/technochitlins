@@ -291,7 +291,7 @@ end
 
 -- from OneBag
  
-local BAGTYPE_PROFESSION = 0x0008 + 0x0010 + 0x0020 + 0x0040 + 0x0080 + 0x0200 + 0x0400
+local BAGTYPE_PROFESSION = 0x0008 + 0x0010 + 0x0020 + 0x0040 + 0x0080 + 0x0200 + 0x0400 + 0x100000
 
 function Stuffing:BagType(bag)
 	local bagType = select(2, GetContainerNumFreeSlots(bag))
