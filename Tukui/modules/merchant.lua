@@ -1,5 +1,19 @@
 local db = TukuiCF["merchant"]
 
+local filter = {
+	[6289]  = true, -- Raw Longjaw Mud Snapper
+	[6291]  = true, -- Raw Brilliant Smallfish
+	[6308]  = true, -- Raw Bristle Whisker Catfish
+	[6309]  = true, -- 17 Pound Catfish
+	[6310]  = true, -- 19 Pound Catfish
+	[41808] = true, -- Bonescale Snapper
+	[42336] = true, -- Bloodstone Band
+	[42337] = true, -- Sun Rock Ring
+	[43244] = true, -- Crystal Citrine Necklace
+	[43571] = true, -- Sewer Carp
+	[43572] = true, -- Magic Eater		
+},
+
 local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function()
 	if db.sellgrays or db.sellmisc then
@@ -14,7 +28,7 @@ f:SetScript("OnEvent", function()
 						PickupMerchantItem()
 						c = c+p
 					end
-					if db.sellmisc and db.filter[ lid ] then
+					if db.sellmisc and filter[ lid ] then
 						UseContainerItem(b, s)
 						PickupMerchantItem()
 						c = c+p
