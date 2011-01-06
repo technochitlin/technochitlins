@@ -1359,14 +1359,16 @@ function Stuffing.Menu(self, level)
 	end
 
 	info.func = function()
-		if key_ring = 1 then
+		if key_ring == 1 then
 			key_ring = 0
 		else
 			key_ring = 1
 		end
+		Stuffing_Toggle()
 		ToggleKeyRing()
 		Stuffing:Layout()
 	end
+	UIDropDownMenu_AddButton(info, level)
 
 	wipe(info)
 	info.disabled = nil
