@@ -1353,6 +1353,22 @@ function Stuffing.Menu(self, level)
 	UIDropDownMenu_AddButton(info, level)
 
 	wipe(info)
+	info.text = BINDING_NAME_TOGGLEKEYRING
+	info.checked = function()
+		return key_ring == 1
+	end
+
+	info.func = function()
+		if key_ring = 1 then
+			key_ring = 0
+		else
+			key_ring = 1
+		end
+		ToggleKeyRing()
+		Stuffing:Layout()
+	end
+
+	wipe(info)
 	info.disabled = nil
 	info.notCheckable = 1
 	info.text = CLOSE
