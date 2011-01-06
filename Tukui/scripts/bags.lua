@@ -1353,7 +1353,7 @@ function Stuffing.Menu(self, level)
 	UIDropDownMenu_AddButton(info, level)
 
 	wipe(info)
-	info.text = BINDING_NAME_TOGGLEKEYRING
+	info.text = KEYRING
 	info.checked = function()
 		return key_ring == 1
 	end
