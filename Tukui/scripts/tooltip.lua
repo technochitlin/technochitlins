@@ -26,7 +26,7 @@ local NeedBackdropBorderRefresh = false
 
 hooksecurefunc("GameTooltip_SetDefaultAnchor", function(self, parent)
 	if db.cursor == true then
-		if IsAddonLoaded("Tukui_Heal_Layout") and parent ~= UIParent then
+		if IsAddOnLoaded("Tukui_Heal_Layout") and parent ~= UIParent then
 			self:SetOwner(parent, "ANCHOR_NONE")
 		else
 			self:SetOwner(parent, "ANCHOR_CURSOR")
