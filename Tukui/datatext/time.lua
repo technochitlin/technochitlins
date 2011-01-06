@@ -162,9 +162,9 @@ if TukuiCF["datatext"].wowtime and TukuiCF["datatext"].wowtime > 0 then
 	Stat:RegisterEvent("UPDATE_INSTANCE_INFO")
 	Stat:SetScript("OnMouseDown", function(self, btn)
 		if btn == 'RightButton'  then
-			ToggleCalendar()
-		else
 			ToggleTimeManager()
+		else
+			ToggleCalendar()
 		end
 	end)
 	Update(Stat, 10)
