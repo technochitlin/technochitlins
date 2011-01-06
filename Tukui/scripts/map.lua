@@ -100,15 +100,14 @@ local SmallerMapSkin = function()
 	WorldMapTitleButton:SetFrameStrata("MEDIUM")
 	WorldMapTooltip:SetFrameStrata("TOOLTIP")
 
-	
 	WorldMapQuestShowObjectives:SetParent(ald)
 	WorldMapQuestShowObjectives:ClearAllPoints()
-	WorldMapQuestShowObjectives:SetPoint("BOTTOMRIGHT", WorldMapButton, "BOTTOMRIGHT", 0, TukuiDB.Scale(10))
+	WorldMapQuestShowObjectives:SetPoint("BOTTOMLEFT", WorldMapButton, "BOTTOMLEFT", TukuiDB.Scale(7), TukuiDB.Scale(36))
 	WorldMapQuestShowObjectives:SetFrameStrata("HIGH")
 	WorldMapQuestShowObjectivesText:SetFont(ft, fontsize, "THINOUTLINE")
 	WorldMapQuestShowObjectivesText:SetShadowOffset(TukuiDB.mult, -TukuiDB.mult)
 	WorldMapQuestShowObjectivesText:ClearAllPoints()
-	WorldMapQuestShowObjectivesText:SetPoint("RIGHT", WorldMapQuestShowObjectives, "LEFT", TukuiDB.Scale(-4), TukuiDB.Scale(1))
+	WorldMapQuestShowObjectivesText:SetPoint("LEFT", WorldMapQuestShowObjectives, "RIGHT", TukuiDB.Scale(0), TukuiDB.Scale(1))
 	
 	WorldMapShowDigSites:SetParent(ald)
 	WorldMapShowDigSitesText:ClearAllPoints()
