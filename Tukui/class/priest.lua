@@ -2,6 +2,7 @@
 if TukuiCF["unitframes"].enable ~= true or TukuiDB.myclass ~= "PRIEST" then return end
 
 local font = TukuiCF["media"].font
+local ws = GetSpellInfo(6788)
 
 local function BarPanel(height, width, x, y, anchorPoint, anchorPointRel, anchor, level, parent, strata)
 	local Panel = CreateFrame("Frame", _, parent)
@@ -31,7 +32,7 @@ local function UpdateBar(self)
 		self.Time:SetText(roundedt)
 	end
 
-	if timeLeft < 0 or (UnitHasVehicleUI("player") and self.Player) then
+	if timeLeft < 0 or (UnitHasVehicleUI("player") and self.Player) or (self.Player and not UnitDebuff("player", ws)) or (self.Target and not UnitDebuff("target", ws)) then
 		self.Panel:Hide()
 		self:SetScript("OnUpdate", nil)
 	end
@@ -66,8 +67,6 @@ end
 --  Weakened Soul Bar codes
 --------------------------------------------------------
 
-local ws = GetSpellInfo(6788)
-
 if (TukuiCF["unitframes"].ws_show_target) then
 	local WeakenedTargetFrame = CreateFrame("Frame", _, oUF_Tukz_target)
 	if TukuiDB.lowversion == true then
@@ -97,6 +96,7 @@ if (TukuiCF["unitframes"].ws_show_target) then
 				self.EndTime = expirationTime
 				self.Duration = duration
 				self.Panel:Show()
+				self.Target = true
 				self:SetScript("OnUpdate", UpdateBar)
 			end
 		end
@@ -128,7 +128,7 @@ if (TukuiCF["unitframes"].ws_show_player) then
 	ConfigureBar(WeakenedPlayerFrame)
 	-- Check for Weakened Soul on me and show bar if it is
 	local function WeakenedPlayerCheck(self, event, unit, spell)
-		if (unit == "player" and UnitDebuff("player", ws)) then
+		if (unit == "player" and UnitDebuff("player", ws)) then		
 			local name, _, _, _, _, duration, expirationTime, unitCaster = UnitDebuff("player", ws)
 			if name then
 				self.EndTime = expirationTime
