@@ -1,8 +1,13 @@
 TukuiCF["media"] = {
-	-- fonts (ENGLISH, DEUTCH, SPANISH)
+	-- fonts (ENGLISH, SPANISH)
 	["font"] = [=[Interface\Addons\Tukui\media\fonts\normal_font.ttf]=], -- general font of tukui
 	["uffont"] = [[Interface\AddOns\Tukui\media\fonts\uf_font.ttf]], -- general font of unitframes
 	["dmgfont"] = [[Interface\AddOns\Tukui\media\fonts\combat_font.ttf]], -- general font of dmg / sct
+	
+	-- fonts (DEUTSCH)
+	["de_font"] = [=[Interface\Addons\Tukui\media\fonts\normal_font.ttf]=], -- general font of tukui
+	["de_uffont"] = [[Interface\AddOns\Tukui\media\fonts\uf_font.ttf]], -- general font of unitframes
+	["de_dmgfont"] = [[Interface\AddOns\Tukui\media\fonts\normal_font.ttf]], -- general font of dmg / sct
 	
 	-- fonts (FRENCH)
 	["fr_font"] = [=[Interface\Addons\Tukui\media\fonts\normal_font.ttf]=], -- general font of tukui

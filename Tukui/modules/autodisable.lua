@@ -34,6 +34,10 @@ elseif TukuiDB.client == "frFR" then
 	TukuiCF["media"].uffont = TukuiCF["media"].fr_uffont
 	TukuiCF["media"].font = TukuiCF["media"].fr_font
 	TukuiCF["media"].dmgfont = TukuiCF["media"].fr_dmgfont
+elseif TukuiDB.client == "deDE" then
+	TukuiCF["media"].uffont = TukuiCF["media"].de_uffont
+	TukuiCF["media"].font = TukuiCF["media"].de_font
+	TukuiCF["media"].dmgfont = TukuiCF["media"].de_dmgfont
 end
 
 ------------------------------------------------------------------------
