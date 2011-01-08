@@ -183,29 +183,29 @@ local function Shared(self, unit)
 			self.Portrait = portrait
 		end
 
+		-- alt power bar
+		local AltPowerBar = CreateFrame("StatusBar", nil, self.Health)
+		AltPowerBar:SetFrameLevel(self.Health:GetFrameLevel() + 1)
+		AltPowerBar:SetHeight(5)
+		AltPowerBar:SetStatusBarTexture(TukuiCF.media.normTex)
+		AltPowerBar:GetStatusBarTexture():SetHorizTile(false)
+		AltPowerBar:SetStatusBarColor(1, 0, 0)
+
+		AltPowerBar:SetPoint("LEFT")
+		AltPowerBar:SetPoint("RIGHT")
+		AltPowerBar:SetPoint("TOP", self.Health, "TOP")
+		
+		AltPowerBar:SetBackdrop({
+		  bgFile = TukuiCF["media"].blank, 
+		  edgeFile = TukuiCF["media"].blank, 
+		  tile = false, tileSize = 0, edgeSize = 1, 
+		  insets = { left = 0, right = 0, top = 0, bottom = TukuiDB.Scale(-1)}
+		})
+		AltPowerBar:SetBackdropColor(0, 0, 0)
+
+		self.AltPowerBar = AltPowerBar
+			
 		if (unit == "player") then
-			-- alt power bar
-			local AltPowerBar = CreateFrame("StatusBar", "TukuiAltPowerBar", self.Health)
-			AltPowerBar:SetFrameLevel(self.Health:GetFrameLevel() + 1)
-			AltPowerBar:SetHeight(5)
-			AltPowerBar:SetStatusBarTexture(TukuiCF.media.normTex)
-			AltPowerBar:GetStatusBarTexture():SetHorizTile(false)
-			AltPowerBar:SetStatusBarColor(1, 0, 0)
-
-			AltPowerBar:SetPoint("LEFT")
-			AltPowerBar:SetPoint("RIGHT")
-			AltPowerBar:SetPoint("TOP", self.Health, "TOP")
-			
-			AltPowerBar:SetBackdrop({
-			  bgFile = TukuiCF["media"].blank, 
-			  edgeFile = TukuiCF["media"].blank, 
-			  tile = false, tileSize = 0, edgeSize = 1, 
-			  insets = { left = 0, right = 0, top = 0, bottom = TukuiDB.Scale(-1)}
-			})
-			AltPowerBar:SetBackdropColor(0, 0, 0)
-
-			self.AltPowerBar = AltPowerBar
-			
 			-- combat icon
 			local Combat = health:CreateTexture(nil, "OVERLAY")
 			Combat:SetHeight(TukuiDB.Scale(19))
@@ -1209,6 +1209,30 @@ local function Shared(self, unit)
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:namelong]')
 		self.Name = Name
 		
+		-- alt power bar
+		if unit and unit:find("boss%d") then
+			local AltPowerBar = CreateFrame("StatusBar", nil, self.Health)
+			AltPowerBar:SetFrameLevel(self.Health:GetFrameLevel() + 1)
+			AltPowerBar:SetHeight(4)
+			AltPowerBar:SetStatusBarTexture(TukuiCF.media.normTex)
+			AltPowerBar:GetStatusBarTexture():SetHorizTile(false)
+			AltPowerBar:SetStatusBarColor(1, 0, 0)
+
+			AltPowerBar:SetPoint("LEFT")
+			AltPowerBar:SetPoint("RIGHT")
+			AltPowerBar:SetPoint("TOP", self.Health, "TOP")
+			
+			AltPowerBar:SetBackdrop({
+			  bgFile = TukuiCF["media"].blank, 
+			  edgeFile = TukuiCF["media"].blank, 
+			  tile = false, tileSize = 0, edgeSize = 1, 
+			  insets = { left = 0, right = 0, top = 0, bottom = TukuiDB.Scale(-1)}
+			})
+			AltPowerBar:SetBackdropColor(0, 0, 0)
+
+			self.AltPowerBar = AltPowerBar
+		end
+		
 		-- create buff at left of unit if they are boss units
 		if (unit and unit:find("boss%d")) then
 			local buffs = CreateFrame("Frame", nil, self)
@@ -1407,15 +1431,6 @@ if db.showboss then
 			boss[i]:SetPoint('BOTTOM', boss[i-1], 'TOP', 0, 10)             
 		end
 		boss[i]:SetSize(TukuiDB.Scale(200), TukuiDB.Scale(29))
-		
-		--Special PowerBar for Boss frames
-		local pf = _G["Boss"..i.."TargetFramePowerBarAlt"]
-		pf:ClearAllPoints()
-		pf:SetPoint("LEFT", _G["oUF_Boss"..i], "RIGHT", 10, 0)
-		pf:SetParent(_G["oUF_Boss"..i])
-		pf.ClearAllPoints = TukuiDB.dummy
-		pf.SetPoint = TukuiDB.dummy
-		pf.SetParent = TukuiDB.dummy
 	end
 end
 
