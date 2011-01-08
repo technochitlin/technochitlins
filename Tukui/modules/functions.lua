@@ -815,12 +815,6 @@ do
 		end
 	end
 
-	TukuiDB.UpdateCPoints = function(self, event, unit)
-		if unit == PlayerFrame.unit and unit ~= self.CPoints.unit then
-			self.CPoints.unit = unit
-		end
-	end
-
 	TukuiDB.UpdateReputationColor = function(self, event, unit, bar)
 		local name, id = GetWatchedFactionInfo()
 		bar:SetStatusBarColor(FACTION_BAR_COLORS[id].r, FACTION_BAR_COLORS[id].g, FACTION_BAR_COLORS[id].b)

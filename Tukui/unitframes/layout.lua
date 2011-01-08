@@ -560,7 +560,6 @@ local function Shared(self, unit)
 			CPoints[4]:SetVertexColor(0.65, 0.63, 0.35)
 			CPoints[5]:SetVertexColor(0.33, 0.59, 0.33)
 			self.CPoints = CPoints
-			self:RegisterEvent("UNIT_COMBO_POINTS", TukuiDB.UpdateCPoints)
 		end
 
 		if (unit == "target" and db.targetauras) or (unit == "player" and db.playerauras) then
