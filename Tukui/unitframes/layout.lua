@@ -1209,8 +1209,8 @@ local function Shared(self, unit)
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:namelong]')
 		self.Name = Name
 		
-		-- alt power bar
-		if unit and unit:find("boss%d") then
+		if (unit and unit:find("boss%d")) then
+			-- alt power bar
 			local AltPowerBar = CreateFrame("StatusBar", nil, self.Health)
 			AltPowerBar:SetFrameLevel(self.Health:GetFrameLevel() + 1)
 			AltPowerBar:SetHeight(4)
@@ -1231,10 +1231,8 @@ local function Shared(self, unit)
 			AltPowerBar:SetBackdropColor(0, 0, 0)
 
 			self.AltPowerBar = AltPowerBar
-		end
-		
-		-- create buff at left of unit if they are boss units
-		if (unit and unit:find("boss%d")) then
+			
+			-- create buff at left of unit if they are boss units
 			local buffs = CreateFrame("Frame", nil, self)
 			buffs:SetHeight(26)
 			buffs:SetWidth(252)
