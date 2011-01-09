@@ -1,7 +1,7 @@
 ﻿## Interface: 40000
 ## Author: Tukz
+## Project Collaborators: Elv22
 ## Credits to: Caith, Caellian, Shestak, Haste, Tekkub, Alza, Roth, P3lim, Tulla, Hungtar, hankthetank, Ishtara and others...
-## Collaborators: Elv22
 ## Special Thanks to: Admins, Moderator and VIP's from tukui.org
 ## Version: 12.57
 ## Title: |cffC495DDTukui|r
