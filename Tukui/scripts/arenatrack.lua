@@ -224,7 +224,7 @@ end
 local updatetimer = 1
 function tCooldownTracker.OnUpdate(elapsed)
 	if (updatetimer >= elapsed) then
-		updatetimer = 0.05
+		updatetimer = 1
 		if (#tCooldownTracker.Timers > 0) then
 			for i in pairs(tCooldownTracker.Timers) do
 				local timeleft = tCooldownTracker.Timers[i].Duration+1-(GetTime()-tCooldownTracker.Timers[i].Start)
