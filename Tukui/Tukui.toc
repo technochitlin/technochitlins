@@ -1,5 +1,5 @@
 ﻿## Interface: 40000
-## Author: Tukz
+## Author: Tukz, Elv
 ## Credits to: Caith, Caellian, Shestak, Haste, Tekkub, Alza, Roth, P3lim, Tulla, Hungtar, hankthetank, Ishtara and others...
 ## Special Thanks to: Admins, Moderator and VIP's from tukui.org
 ## Version: 12.57
