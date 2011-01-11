@@ -58,7 +58,7 @@ TukuiDB.remindbuffs = {
 --------------------------------------------------------------------------------------------
 
 if TukuiCF["pvp"].interrupt == true then
-	TukuiDB.spelltracker = {
+	TukuiDB.interrupt = {
 		[1766] = 10, -- kick
 		[6552] = 10, -- pummel
 		[2139] = 24, -- counterspell
