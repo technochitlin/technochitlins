@@ -832,7 +832,7 @@ do
 		bar:SetStatusBarColor(FACTION_BAR_COLORS[id].r, FACTION_BAR_COLORS[id].g, FACTION_BAR_COLORS[id].b)
 	end
 
-	TukuiDB.UpdatePetInfo = function(self,event)
+	TukuiDB.UpdateName = function(self,event)
 		if self.Name then self.Name:UpdateTag(self.unit) end
 	end
 

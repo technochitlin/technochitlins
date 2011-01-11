@@ -943,7 +943,7 @@ local function Shared(self, unit)
 		end
 		
 		-- update pet name, this should fix "UNKNOWN" pet names on pet unit.
-		self:RegisterEvent("UNIT_PET", TukuiDB.UpdatePetInfo)
+		self:RegisterEvent("UNIT_PET", TukuiDB.UpdateName)
 	end
 
 
@@ -1207,6 +1207,7 @@ local function Shared(self, unit)
 		Name:SetShadowOffset(1.25, -1.25)
 		
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:namelong]')
+		self:RegisterEvent("OnShow", TukuiDB.UpdateName)
 		self.Name = Name
 		
 		if (unit and unit:find("boss%d")) then
