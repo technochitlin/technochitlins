@@ -1248,20 +1248,18 @@ local function Shared(self, unit)
 		end
 
 		-- create debuff for arena units
-		if (unit and unit:find("arena%d")) then
-			local debuffs = CreateFrame("Frame", nil, self)
-			debuffs:SetHeight(26)
-			debuffs:SetWidth(200)
-			debuffs:SetPoint('LEFT', self, 'RIGHT', TukuiDB.Scale(4), 0)
-			debuffs.size = 26
-			debuffs.num = 5
-			debuffs.spacing = 2
-			debuffs.initialAnchor = 'LEFT'
-			debuffs["growth-x"] = "RIGHT"
-			debuffs.PostCreateIcon = TukuiDB.PostCreateAura
-			debuffs.PostUpdateIcon = TukuiDB.PostUpdateAura
-			self.Debuffs = debuffs	
-		end
+		local debuffs = CreateFrame("Frame", nil, self)
+		debuffs:SetHeight(26)
+		debuffs:SetWidth(200)
+		debuffs:SetPoint('LEFT', self, 'RIGHT', TukuiDB.Scale(4), 0)
+		debuffs.size = 26
+		debuffs.num = 5
+		debuffs.spacing = 2
+		debuffs.initialAnchor = 'LEFT'
+		debuffs["growth-x"] = "RIGHT"
+		debuffs.PostCreateIcon = TukuiDB.PostCreateAura
+		debuffs.PostUpdateIcon = TukuiDB.PostUpdateAura
+		self.Debuffs = debuffs
 				
 		-- trinket feature via trinket plugin
 		if (TukuiCF.arena.unitframes) and (unit and unit:find('arena%d')) then
