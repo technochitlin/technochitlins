@@ -57,7 +57,7 @@ TukuiDB.remindbuffs = {
 -- the interrupt spellIDs to track on screen in arena.
 --------------------------------------------------------------------------------------------
 
-if TukuiCF["arena"].spelltracker == true then
+if TukuiCF["pvp"].interrupt == true then
 	TukuiDB.spelltracker = {
 		[1766] = 10, -- kick
 		[6552] = 10, -- pummel

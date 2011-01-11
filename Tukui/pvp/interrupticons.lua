@@ -1,4 +1,4 @@
-if TukuiCF["arena"].spelltracker ~= true then return end
+if TukuiCF["pvp"].interrupt ~= true then return end
 
 tInterruptIcons = CreateFrame("frame")
 tInterruptIcons:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -16,7 +16,7 @@ tInterruptIcons.Orientations = {
 -- spell configuration
 ------------------------------------------------------------
 
-tInterruptIcons.Spells = TukuiDB.spelltracker
+tInterruptIcons.Spells = TukuiDB.interrupt
 
 ------------------------------------------------------------
 -- end of spell configuration
