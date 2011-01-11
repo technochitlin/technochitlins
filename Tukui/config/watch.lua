@@ -54,7 +54,7 @@ TukuiDB.remindbuffs = {
 }
 
 --------------------------------------------------------------------------------------------
--- the spellIDs to track on screen in arena.
+-- the interrupt spellIDs to track on screen in arena.
 --------------------------------------------------------------------------------------------
 
 if TukuiCF["arena"].spelltracker == true then
@@ -66,20 +66,13 @@ if TukuiCF["arena"].spelltracker == true then
 		[34322] = 27, -- fear priest
 		[47476] = 120, -- strangulate
 		[47528] = 10, -- mindfreeze
-		[29166] = 180, -- innervate
-		[49039] = 120, -- Lichborne
-		[54428] = 60, -- Divine Plea
-		[1022] = 180, -- Hand of Protection
-		[16190] = 300, -- Mana Tide Totem
-		[51514] = 45, -- Hex
-		[2094] = 120, -- Blind
-		[72] = 12, -- fucking prot warrior shield bash
-		[33206] = 144, -- pain sup
+		[57994] = 6, -- wind shear
+		[72] = 12, -- shield bash
 		[15487] = 45, -- silence priest
-		[34490] = 20, -- i hate hunter silencing shot
-		[85285] = 10, -- paladin got a kick now? lol
-		[80964] = 10, -- feral skull bash (cat) (NOTE: 60 seconds if not feral specced)
-		[80965] = 10, -- feral skull bash (bear) (NOTE: 60 seconds if not feral specced)
+		[34490] = 20, -- silencing shot
+		[85285] = 10, -- rebuke
+		[80964] = 10, -- feral skull bash (cat)
+		[80965] = 10, -- feral skull bash (bear)
 	}
 end
 

@@ -95,7 +95,6 @@
 	<Script file="scripts\cooldown.lua"/>
 	<Script file="scripts\nameplates.lua"/>
 	<Script file="scripts\bags.lua"/>
-	<Script file="scripts\arenatrack.lua"/>
 	<Script file="scripts\loot.lua"/>
 	<Script file="scripts\lootroll.lua"/>
 	<Script file="scripts\map.lua"/>
@@ -108,6 +107,8 @@
 	<Include file="unitframes\templates.xml"/>
 	<Script file="unitframes\tags.lua"/>
 	<Script file="unitframes\layout.lua"/>
+	
+	<Script file="pvp\interrupticons.lua"/>
 			
 	<Script file="class\priest.lua"/>
 	<Script file="class\hunter.lua"/>
