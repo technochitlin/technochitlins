@@ -1279,6 +1279,52 @@ local function Shared(self, unit)
 			Trinket.trinketUseAnnounce = true
 			self.Trinket = Trinket
 		end
+		
+		-- boss & arena frames cast bar!
+		local castbar = CreateFrame("StatusBar", self:GetName().."_Castbar", self)
+		castbar:SetPoint("LEFT", 24, 0)
+		castbar:SetPoint("RIGHT", -2, 0)
+		castbar:SetPoint("BOTTOM", 0, -22)
+		
+		castbar:SetHeight(16)
+		castbar:SetStatusBarTexture(normTex)
+		castbar:SetFrameLevel(6)
+		
+		castbar.bg = CreateFrame("Frame", nil, castbar)
+		TukuiDB.SetTemplate(castbar.bg)
+		castbar.bg:SetBackdropBorderColor(unpack(TukuiCF["media"].altbordercolor))
+		castbar.bg:SetPoint("TOPLEFT", TukuiDB.Scale(-2), TukuiDB.Scale(2))
+		castbar.bg:SetPoint("BOTTOMRIGHT", TukuiDB.Scale(2), TukuiDB.Scale(-2))
+		castbar.bg:SetFrameLevel(5)
+		
+		castbar.time = TukuiDB.SetFontString(castbar, font1, 12)
+		castbar.time:SetPoint("RIGHT", castbar, "RIGHT", TukuiDB.Scale(-4), 0)
+		castbar.time:SetTextColor(0.84, 0.75, 0.65)
+		castbar.time:SetJustifyH("RIGHT")
+		castbar.CustomTimeText = TukuiDB.CustomCastTimeText
+
+		castbar.Text = TukuiDB.SetFontString(castbar, font1, 12)
+		castbar.Text:SetPoint("LEFT", castbar, "LEFT", 4, 0)
+		castbar.Text:SetTextColor(0.84, 0.75, 0.65)
+		
+		castbar.CustomDelayText = TukuiDB.CustomCastDelayText
+		castbar.PostCastStart = TukuiDB.PostCastStart
+		castbar.PostChannelStart = TukuiDB.PostCastStart
+								
+		castbar.button = CreateFrame("Frame", nil, castbar)
+		castbar.button:SetHeight(castbar:GetHeight()+TukuiDB.Scale(4))
+		castbar.button:SetWidth(castbar:GetHeight()+TukuiDB.Scale(4))
+		castbar.button:SetPoint("RIGHT", castbar, "LEFT", TukuiDB.Scale(-4), 0)
+		TukuiDB.SetTemplate(castbar.button)
+		castbar.button:SetBackdropBorderColor(unpack(TukuiCF["media"].altbordercolor))
+		castbar.icon = castbar.button:CreateTexture(nil, "ARTWORK")
+		castbar.icon:SetPoint("TOPLEFT", castbar.button, TukuiDB.Scale(2), TukuiDB.Scale(-2))
+		castbar.icon:SetPoint("BOTTOMRIGHT", castbar.button, TukuiDB.Scale(-2), TukuiDB.Scale(2))
+		castbar.icon:SetTexCoord(0.08, 0.92, 0.08, .92)
+
+		self.Castbar = castbar
+		self.Castbar.Time = castbar.time
+		self.Castbar.Icon = castbar.icon
 	end
 
 	------------------------------------------------------------------------
@@ -1400,9 +1446,9 @@ if TukuiCF.arena.unitframes then
 	for i = 1, 5 do
 		arena[i] = oUF:Spawn("arena"..i, "oUF_Arena"..i)
 		if i == 1 then
-			arena[i]:SetPoint("BOTTOM", UIParent, "BOTTOM", 252, 260)
+			arena[i]:SetPoint("BOTTOM", UIParent, "BOTTOM", 244, 294)
 		else
-			arena[i]:SetPoint("BOTTOM", arena[i-1], "TOP", 0, 10)
+			arena[i]:SetPoint("BOTTOM", arena[i-1], "TOP", 0, 35)
 		end
 		arena[i]:SetSize(TukuiDB.Scale(200), TukuiDB.Scale(29))
 	end
@@ -1422,9 +1468,9 @@ if db.showboss then
 	for i = 1, MAX_BOSS_FRAMES do
 		boss[i] = oUF:Spawn("boss"..i, "oUF_Boss"..i)
 		if i == 1 then
-			boss[i]:SetPoint("BOTTOM", UIParent, "BOTTOM", 252, 260)
+			boss[i]:SetPoint("BOTTOM", UIParent, "BOTTOM", 244, 294)
 		else
-			boss[i]:SetPoint('BOTTOM', boss[i-1], 'TOP', 0, 10)             
+			boss[i]:SetPoint('BOTTOM', boss[i-1], 'TOP', 0, 35)             
 		end
 		boss[i]:SetSize(TukuiDB.Scale(200), TukuiDB.Scale(29))
 	end
@@ -1511,5 +1557,3 @@ do
 	UnitPopupMenus["FOCUS"] = { "RAID_TARGET_ICON", "CANCEL" }
 	UnitPopupMenus["BOSS"] = { "RAID_TARGET_ICON", "CANCEL" }
 end
-
-
