@@ -1245,6 +1245,9 @@ local function Shared(self, unit)
 			buffs.PostCreateIcon = TukuiDB.PostCreateAura
 			buffs.PostUpdateIcon = TukuiDB.PostUpdateAura
 			self.Buffs = buffs
+			
+			--Fix boss name on show
+			self:HookScript("OnShow", TukuiDB.updateAllElements)
 		end
 
 		-- create debuff for arena units
