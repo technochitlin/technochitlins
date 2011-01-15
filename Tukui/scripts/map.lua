@@ -242,6 +242,10 @@ TukuiDB.SetTemplate(tinymapbg)
 
 tinymap:SetScript("OnEvent", function(self, event, addon)
 	if addon ~= "Blizzard_BattlefieldMinimap" then return end
+	
+	-- force the map to update immediately
+	ToggleFrame(WorldMapFrame)
+	ToggleFrame(WorldMapFrame)
 
 	BattlefieldMinimap:SetScript("OnShow", function(self)
 		-- show holder
