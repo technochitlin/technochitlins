@@ -1311,8 +1311,8 @@ local function Shared(self, unit)
 		castbar.Text:SetTextColor(0.84, 0.75, 0.65)
 		
 		castbar.CustomDelayText = TukuiDB.CustomCastDelayText
-		castbar.PostCastStart = TukuiDB.PostCastStart
-		castbar.PostChannelStart = TukuiDB.PostCastStart
+		castbar.PostCastStart = TukuiDB.CheckCast
+		castbar.PostChannelStart = TukuiDB.CheckChannel
 								
 		castbar.button = CreateFrame("Frame", nil, castbar)
 		castbar.button:SetHeight(castbar:GetHeight()+TukuiDB.Scale(4))
