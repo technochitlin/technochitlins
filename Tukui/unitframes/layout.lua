@@ -1205,6 +1205,7 @@ local function Shared(self, unit)
 		Name:SetFont(font1, 12, "OUTLINE")
 		Name:SetShadowColor(0, 0, 0)
 		Name:SetShadowOffset(1.25, -1.25)
+		Name.frequentUpdates = 0.2
 		
 		self:Tag(Name, '[Tukui:getnamecolor][Tukui:namelong]')
 		self.Name = Name
@@ -1245,9 +1246,6 @@ local function Shared(self, unit)
 			buffs.PostCreateIcon = TukuiDB.PostCreateAura
 			buffs.PostUpdateIcon = TukuiDB.PostUpdateAura
 			self.Buffs = buffs
-			
-			--Fix boss name on show
-			self:HookScript("OnShow", TukuiDB.updateAllElements)
 		end
 
 		-- create debuff for arena units
