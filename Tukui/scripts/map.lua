@@ -246,11 +246,6 @@ tinymap:SetScript("OnEvent", function(self, event, addon)
 	BattlefieldMinimap:SetScript("OnShow", function(self)
 		-- show holder
 		tinymap:Show()
-		
-		-- force the map to update immediately
-		ToggleFrame(WorldMapFrame)
-		ToggleFrame(WorldMapFrame)
-		
 		TukuiDB.Kill(BattlefieldMinimapCorner)
 		TukuiDB.Kill(BattlefieldMinimapBackground)
 		TukuiDB.Kill(BattlefieldMinimapTab)
