@@ -142,10 +142,7 @@ if TukuiCF["datatext"].friends and TukuiCF["datatext"].friends > 0 then
 						end
 						if client == "WoW" then
 							local hasFocus, toonName, client, realmName, faction, race, class, guild, zoneName, level = BNGetToonInfo(toonID)
-							for k,v in pairs(LOCALIZED_CLASS_NAMES_MALE) do if class == v then class = k end end
-							if GetLocale() ~= "enUS" then -- feminine class localization (unsure if it's really needed)
-								for k,v in pairs(LOCALIZED_CLASS_NAMES_FEMALE) do if class == v then class = k end end
-							end
+							if level == "" then level = "0" end -- extremly rare bug, sometime a bugged battle.net friend list cannot level of friend, resulting a lua error.
 							classc, levelc = (CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS)[class], GetQuestDifficultyColor(level)
 							if classc == nil then classc = GetQuestDifficultyColor(level) end
 							if UnitInParty(name) or UnitInRaid(name) then grouped = "|cffaaaaaa*|r" else grouped = "" end
