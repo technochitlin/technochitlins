@@ -199,7 +199,7 @@ addon.LOOT_OPENED = function(self, event, autoloot)
 		self:Raise()
 	else
 		self:ClearAllPoints()
-		self:SetUserPlaced(true)
+		self:SetUserPlaced(false)
 		self:SetPoint("TOPLEFT", 0, TukuiDB.Scale(-104))		
 	end
 
