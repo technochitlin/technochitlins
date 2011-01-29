@@ -20,7 +20,7 @@ bar:RegisterEvent("PET_BAR_HIDE")
 bar:RegisterEvent("UNIT_PET")
 bar:RegisterEvent("UNIT_FLAGS")
 bar:RegisterEvent("UNIT_AURA")
-bar:SetScript("OnEvent", function(self, event, ...)
+bar:SetScript("OnEvent", function(self, event, arg1)
 	if event == "PLAYER_LOGIN" then	
 		-- bug reported by Affli on t12 BETA
 		PetActionBarFrame.showgrid = 1 -- hack to never hide pet button. :X
