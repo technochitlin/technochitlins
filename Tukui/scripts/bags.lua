@@ -354,7 +354,7 @@ function Stuffing:SearchUpdate(str)
 			b.frame:SetAlpha(.2)
 		end
 		if b.name then
-			if not string.find (string.lower(b.name), str) then
+			if not string.find (string.lower(b.name), str, 1, true) then
 				SetItemButtonDesaturated(b.frame, 1, 1, 1, 1)
 				b.frame:SetAlpha(.2)
 			else
