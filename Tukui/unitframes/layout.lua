@@ -942,8 +942,8 @@ local function Shared(self, unit)
 			end
 		end
 		
-		-- update pet name, this should fix "UNKNOWN" pet names on pet unit.
-		self:RegisterEvent("UNIT_PET", TukuiDB.UpdateName)
+		-- update pet name, this should fix "UNKNOWN" pet names on pet unit and health/power colors.
+		self:RegisterEvent("UNIT_PET", TukuiDB.updateAllElements)
 	end
 
 
