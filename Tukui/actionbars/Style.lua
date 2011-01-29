@@ -107,9 +107,11 @@ local function stylesmallbutton(normal, button, icon, name, pet)
 		end
 	end
 	
-	normal:ClearAllPoints()
-	normal:SetPoint("TOPLEFT")
-	normal:SetPoint("BOTTOMRIGHT")
+	if normal then
+		normal:ClearAllPoints()
+		normal:SetPoint("TOPLEFT")
+		normal:SetPoint("BOTTOMRIGHT")
+	end
 end
 
 function TukuiDB.StyleShift()
