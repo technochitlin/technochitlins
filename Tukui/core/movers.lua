@@ -101,6 +101,9 @@ local function exec(self, enable)
 			-- used for shaman totembar update
 			if T.myclass == "SHAMAN" and self.moving == false and HasMultiCastActionBar() then
 				T.TotemOrientationDown = T.TotemBarOrientation()
+				MultiCastFlyoutFrameOpenButton_Show(MultiCastFlyoutFrameOpenButton, "slot", MultiCastSlotButton1)
+				MultiCastFlyoutFrameOpenButton:Click()
+				MultiCastFlyoutFrame:Hide()
 			end
 		end
 	end
