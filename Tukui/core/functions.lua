@@ -235,7 +235,7 @@ T.Round = function(number, decimals)
     return (("%%.%df"):format(decimals)):format(number)
 end
 
-T.RGBPercToHex = function(r, g, b)
+T.RGBToHex = function(r, g, b)
 	r = r <= 1 and r >= 0 and r or 0
 	g = g <= 1 and g >= 0 and g or 0
 	b = b <= 1 and b >= 0 and b or 0

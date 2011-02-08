@@ -92,11 +92,15 @@ local function stylesmallbutton(normal, button, icon, name, pet)
 
 		icon:SetTexCoord(.08, .92, .08, .92)
 		icon:ClearAllPoints()
-		if pet then
-			local autocast = _G[name.."AutoCastable"]
-			autocast:Size(41, 40)
-			autocast:ClearAllPoints()
-			autocast:SetPoint("CENTER", button, 0, 0)
+		if pet then			
+			if T.petbuttonsize < 30 then
+				local autocast = _G[name.."AutoCastable"]
+				autocast:SetAlpha(0)
+			end
+			local shine = _G[name.."Shine"]
+			shine:Size(T.petbuttonsize, T.petbuttonsize)
+			shine:ClearAllPoints()
+			shine:SetPoint("CENTER", button, 0, 0)
 			icon:Point("TOPLEFT", button, T.Scale(2), T.Scale(-2))
 			icon:Point("BOTTOMRIGHT", button, T.Scale(-2), T.Scale(2))
 		else
@@ -334,15 +338,13 @@ local function StyleTotemFlyout(flyout)
 		icon:SetDrawLayer("ARTWORK")
 		icon:Point("TOPLEFT",button,"TOPLEFT",2,-2)
 		icon:Point("BOTTOMRIGHT",button,"BOTTOMRIGHT",-2,2)			
-		if not InCombatLockdown() then
-			button:Size(30,30)
-			button:ClearAllPoints()
-			if T.TotemOrientationDown then
-				button:Point("TOP",last,"BOTTOM",0,-4)
-			else
-				button:Point("BOTTOM",last,"TOP",0,4)
-			end
-		end			
+		button:Size(30,30)
+		button:ClearAllPoints()
+		if T.TotemOrientationDown then
+			button:Point("TOP",last,"BOTTOM",0,-4)
+		else
+			button:Point("BOTTOM",last,"TOP",0,4)
+		end		
 		if button:IsVisible() then last = button end
 		button:SetBackdropBorderColor(flyout.parent:GetBackdropBorderColor())
 		button:StyleButton()
@@ -446,7 +448,7 @@ local function StyleTotemActionButton(button, index)
 	button.overlayTex:Hide()
 	button:GetNormalTexture():SetTexture(nil)
 	button.SetNormalTexture = T.dummy
-	if not InCombatLockdown() and button.slotButton then
+	if button.slotButton then
 		button:ClearAllPoints()
 		button:SetAllPoints(button.slotButton)
 		button:SetFrameLevel(button.slotButton:GetFrameLevel()+1)
@@ -467,7 +469,7 @@ local function StyleTotemSpellButton(button, index)
 	icon:Point("BOTTOMRIGHT",button,"BOTTOMRIGHT",-2,2)
 	button:SetTemplate("Default")
 	button:GetNormalTexture():SetTexture(nil)
-	if not InCombatLockdown() then button:Size(30, 30) end
+	button:Size(30, 30)
 	_G[button:GetName().."Highlight"]:SetTexture(nil)
 	_G[button:GetName().."NormalTexture"]:SetTexture(nil)
 	button:StyleButton()
