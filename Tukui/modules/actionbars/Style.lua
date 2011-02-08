@@ -433,7 +433,7 @@ local function StyleTotemSlotButton(button, index)
 	button.background:ClearAllPoints()
 	button.background:SetPoint("TOPLEFT",button,"TOPLEFT",T.Scale(2),T.Scale(-2))
 	button.background:SetPoint("BOTTOMRIGHT",button,"BOTTOMRIGHT",T.Scale(-2),T.Scale(2))
-	button:Size(30)
+	if not InCombatLockdown() then button:Size(30) end
 	button:SetBackdropBorderColor(unpack(bordercolors[((index-1) % 4) + 1]))
 	button:StyleButton()
 end
