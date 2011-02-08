@@ -57,6 +57,10 @@ C["arena"] = {
 	["unitframes"] = true,                              -- enable tukz arena unitframes (requirement : tukui unitframes enabled)
 }
 
+C["auras"] = {
+	["player"] = true,                                  -- enable tukui buffs/debuffs
+}
+
 C["actionbar"] = {
 	["enable"] = true,                                  -- enable tukui action bars
 	["hotkey"] = false,                                 -- enable hotkey display because it was a lot requested
