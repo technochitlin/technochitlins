@@ -422,8 +422,8 @@ local function StyleTotemActionButton(button, index)
 	icon:Point("BOTTOMRIGHT",button,"BOTTOMRIGHT",-2,2)
 	button.overlayTex:SetTexture(nil)
 	button.overlayTex:Hide()
-	button:GetNormalTexture():GetRegions():SetAlpha(0)
-	--button:GetNormalTexture():SetTexture(nil)
+	--button:GetNormalTexture():GetRegions():SetAlpha(0)
+	button:GetNormalTexture():SetTexture(nil)
 	--button.SetNormalTexture = T.dummy               This is fucking up something and causing a taint
 	if not InCombatLockdown() and button.slotButton then
 		button:ClearAllPoints()
