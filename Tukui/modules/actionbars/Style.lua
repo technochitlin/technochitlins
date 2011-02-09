@@ -338,13 +338,15 @@ local function StyleTotemFlyout(flyout)
 		icon:SetDrawLayer("ARTWORK")
 		icon:Point("TOPLEFT",button,"TOPLEFT",2,-2)
 		icon:Point("BOTTOMRIGHT",button,"BOTTOMRIGHT",-2,2)			
-		button:Size(30,30)
-		button:ClearAllPoints()
-		if T.TotemOrientationDown then
-			button:Point("TOP",last,"BOTTOM",0,-4)
-		else
-			button:Point("BOTTOM",last,"TOP",0,4)
-		end		
+		if not InCombatLockdown() then
+			button:Size(30,30)
+			button:ClearAllPoints()
+			if T.TotemOrientationDown then
+				button:Point("TOP",last,"BOTTOM",0,-4)
+			else
+				button:Point("BOTTOM",last,"TOP",0,4)
+			end
+		end			
 		if button:IsVisible() then last = button end
 		button:SetBackdropBorderColor(flyout.parent:GetBackdropBorderColor())
 		button:StyleButton()
@@ -431,7 +433,7 @@ local function StyleTotemSlotButton(button, index)
 	button.background:ClearAllPoints()
 	button.background:SetPoint("TOPLEFT",button,"TOPLEFT",T.Scale(2),T.Scale(-2))
 	button.background:SetPoint("BOTTOMRIGHT",button,"BOTTOMRIGHT",T.Scale(-2),T.Scale(2))
-	button:Size(30)
+	if not InCombatLockdown() then button:Size(30) end
 	button:SetBackdropBorderColor(unpack(bordercolors[((index-1) % 4) + 1]))
 	button:StyleButton()
 end
@@ -447,8 +449,8 @@ local function StyleTotemActionButton(button, index)
 	button.overlayTex:SetTexture(nil)
 	button.overlayTex:Hide()
 	button:GetNormalTexture():SetTexture(nil)
-	button.SetNormalTexture = T.dummy
-	if button.slotButton then
+	--button.SetNormalTexture = T.dummy               This is fucking up something and causing a taint
+	if not InCombatLockdown() and button.slotButton then
 		button:ClearAllPoints()
 		button:SetAllPoints(button.slotButton)
 		button:SetFrameLevel(button.slotButton:GetFrameLevel()+1)
@@ -458,6 +460,18 @@ local function StyleTotemActionButton(button, index)
 	button:StyleButton(true)
 end
 hooksecurefunc("MultiCastActionButton_Update",function(actionButton, actionId, actionIndex, slot) StyleTotemActionButton(actionButton,actionIndex) end)
+
+local function ResetTotemTexture()
+	for i=1, 12 do
+		local button = _G["MultiCastActionButton"..i]
+		if button then
+			button:GetNormalTexture():SetTexture(nil)	
+		end
+	end
+end
+
+local tempfix = CreateFrame("Frame")
+tempfix:SetScript("OnUpdate", function() ResetTotemTexture() end) --I cant find what the hell function is calling the totem backdrops to reshow
 
 -- Skin the summon and recall buttons
 local function StyleTotemSpellButton(button, index)
@@ -469,7 +483,7 @@ local function StyleTotemSpellButton(button, index)
 	icon:Point("BOTTOMRIGHT",button,"BOTTOMRIGHT",-2,2)
 	button:SetTemplate("Default")
 	button:GetNormalTexture():SetTexture(nil)
-	button:Size(30, 30)
+	if not InCombatLockdown() then button:Size(30, 30) end
 	_G[button:GetName().."Highlight"]:SetTexture(nil)
 	_G[button:GetName().."NormalTexture"]:SetTexture(nil)
 	button:StyleButton()
