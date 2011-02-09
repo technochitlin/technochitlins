@@ -219,17 +219,6 @@ T.buttonspacing = T.Scale(C.actionbar.buttonspacing)
 T.petbuttonsize = T.Scale(C.actionbar.petbuttonsize)
 T.petbuttonspacing = T.Scale(C.actionbar.buttonspacing)
 
-T.TotemBarOrientation = function(revert)
-	local position = TukuiShiftBar:GetPoint()
-	if position:match("TOP") then
-		revert = true
-	else
-		revert = false
-	end
-	
-	return revert
-end
-
 T.Round = function(number, decimals)
 	if not decimals then decimals = 0 end
     return (("%%.%df"):format(decimals)):format(number)
