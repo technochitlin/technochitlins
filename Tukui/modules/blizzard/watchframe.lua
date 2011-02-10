@@ -71,8 +71,21 @@ local function setup()
 
 	WatchFrameTitle:SetParent(TukuiWatchFrame)
 	WatchFrameCollapseExpandButton:SetParent(TukuiWatchFrame)
+	WatchFrameCollapseExpandButton:SetNormalTexture("")
+	WatchFrameCollapseExpandButton:SetPushedTexture("")
+	WatchFrameCollapseExpandButton:SetHighlightTexture("")
+	WatchFrameCollapseExpandButton:SetTemplate("Default")
+	WatchFrameCollapseExpandButton:FontString("text", C.media.font, 12)
+	WatchFrameCollapseExpandButton.text:SetText("X")
+	WatchFrameCollapseExpandButton.text:Point("CENTER", 1, 0)
+	WatchFrameCollapseExpandButton:HookScript("OnClick", function(self) 
+		if WatchFrame.collapsed then 
+			self.text:SetText("V") 
+		else 
+			self.text:SetText("X")
+		end 
+	end)
 	WatchFrameTitle:Kill()
-	WatchFrameCollapseExpandButton:Kill()
 end
 
 ------------------------------------------------------------------------
