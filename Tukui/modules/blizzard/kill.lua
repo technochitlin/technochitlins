@@ -30,7 +30,7 @@ Kill:SetScript("OnEvent", function(self, event, addon)
 		PartyMemberBackground:Kill()
 		TutorialFrameAlertButton:Kill()
 		
-		if C.auras.player then
+		if C.auras.player or C.unitframes.playerauras then
 			BuffFrame:Kill()
 			TemporaryEnchantFrame:Kill()
 			ConsolidatedBuffs:Kill()
