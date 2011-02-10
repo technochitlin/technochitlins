@@ -9,6 +9,6 @@
 ## SavedVariables: TukuiData
 ## SavedVariablesPerCharacter: TukuiDataPerChar
 ## OptionalDeps: Tukui_ConfigUI, !ClassColors, Clique
-## X-oUF: oUF
+## X-oUF: oUFTukui
 
 Tukui.xml 
