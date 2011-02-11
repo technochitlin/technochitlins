@@ -250,7 +250,8 @@ local function Shared(self, unit)
 			-- pvp status text
 			local status = T.SetFontString(panel, font1, 12)
 			status:SetPoint("CENTER", panel, "CENTER", 0, 0)
-			status:SetTextColor(0.69, 0.31, 0.31, 0)
+			status:SetTextColor(0.69, 0.31, 0.31)
+			status:Hide()
 			self.Status = status
 			self:Tag(status, "[pvp]")
 			
@@ -528,16 +529,16 @@ local function Shared(self, unit)
 				if self.EclipseBar and self.EclipseBar:IsShown() then 
 					self.EclipseBar.Text:Hide()
 				end
-				FlashInfo.ManaLevel:SetAlpha(0) 
-				status:SetAlpha(1) 
+				FlashInfo.ManaLevel:Hide()
+				status:Show()
 				UnitFrame_OnEnter(self) 
 			end)
 			self:SetScript("OnLeave", function(self) 
 				if self.EclipseBar and self.EclipseBar:IsShown() then 
 					self.EclipseBar.Text:Show()
 				end
-				FlashInfo.ManaLevel:SetAlpha(1)
-				status:SetAlpha(0) 
+				FlashInfo.ManaLevel:Show()
+				status:Hide()
 				UnitFrame_OnLeave(self) 
 			end)
 		end
