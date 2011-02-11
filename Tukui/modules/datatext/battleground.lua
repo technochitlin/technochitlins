@@ -1,7 +1,7 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
 
-local twinpeaks = select(1, GetBattlegroundInfo(2))
-local gilneas = select(1, GetBattlegroundInfo(3))
+local gilneas = select(1, GetBattlegroundInfo(2))
+local twinpeaks = select(1, GetBattlegroundInfo(3))
 local warsong = select(1, GetBattlegroundInfo(4))
 local arathi = select(1, GetBattlegroundInfo(5))
 local eos = select(1, GetBattlegroundInfo(6))
