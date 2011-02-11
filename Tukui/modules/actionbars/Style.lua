@@ -221,7 +221,7 @@ local function styleflyout(self)
 	
 	if self:GetParent():GetParent():GetName() == "SpellBookSpellIconsFrame" then return end
 	
-	if self:GetAttribute("flyoutDirection") ~= nil then\
+	if self:GetAttribute("flyoutDirection") ~= nil then
 		local point, _, _, _, _ = self:GetParent():GetParent():GetParent():GetPoint()
 		
 		if strfind(point, "BOTTOM") then
