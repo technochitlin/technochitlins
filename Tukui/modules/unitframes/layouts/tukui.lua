@@ -1523,7 +1523,7 @@ end
 ------------------------------------------------------------------------
 
 local adjust = 0
-if T.lowversion then adjust = 80 end
+if T.lowversion then adjust = 125 end
 
 -- for lower reso
 local adjustXY = 0
