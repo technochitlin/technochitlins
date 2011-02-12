@@ -1,14 +1,5 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
 
-local gilneas = select(1, GetBattlegroundInfo(2))
-local twinpeaks = select(1, GetBattlegroundInfo(3))
-local warsong = select(1, GetBattlegroundInfo(4))
-local arathi = select(1, GetBattlegroundInfo(5))
-local eos = select(1, GetBattlegroundInfo(6))
-local alterac = select(1, GetBattlegroundInfo(7))
-local sota = select(1, GetBattlegroundInfo(8))
-local conquest = select(1, GetBattlegroundInfo(9))
-
 if not C["datatext"].battleground then return end
 
 --Map IDs
