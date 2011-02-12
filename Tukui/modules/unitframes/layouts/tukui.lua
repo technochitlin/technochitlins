@@ -1576,10 +1576,11 @@ else
 	pet:Size(129, 36)
 end
 
-
-local focustarget = oUF:Spawn("focustarget", "TukuiFocusTarget")
-focustarget:SetPoint("BOTTOM", focus, "TOP", 0 - adjust, 35)
-focustarget:Size(200, 29)
+if C.unitframes.showfocustarget then
+	local focustarget = oUF:Spawn("focustarget", "TukuiFocusTarget")
+	focustarget:SetPoint("BOTTOM", focus, "TOP", 0 - adjust, 35)
+	focustarget:Size(200, 29)
+end
 
 
 if C.arena.unitframes then
