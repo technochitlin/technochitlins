@@ -1,8 +1,9 @@
 local T, C, L = unpack(select(2, ...)) -- Import: T - functions, constants, variables; C - config; L - locales
+
 -- enable or disable an addon via command
-SlashCmdList.DISABLE_ADDON = function(s) DisableAddOn(s) ReloadUI() end
+SlashCmdList.DISABLE_ADDON = function(addon) DisableAddOn(addon) end
 SLASH_DISABLE_ADDON1 = "/disable"
-SlashCmdList.ENABLE_ADDON = function(s) EnableAddOn(s) LoadAddOn(s) ReloadUI() end
+SlashCmdList.ENABLE_ADDON = function(addon) EnableAddOn(addon) LoadAddOn(addon) end
 SLASH_ENABLE_ADDON1 = "/enable"
 
 -- switch to heal layout via a command
