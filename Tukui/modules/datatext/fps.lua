@@ -35,7 +35,7 @@ if C["datatext"].fps_ms and C["datatext"].fps_ms > 0 then
 			GameTooltip:AddLine(latency)
 			GameTooltip:Show()
 		end
-  	end)	
-  	Stat:SetScript("OnLeave", function() GameTooltip:Hide() end)	
+	end)	
+	Stat:SetScript("OnLeave", function() GameTooltip:Hide() end)	
 	Update(Stat, 10)
 end
