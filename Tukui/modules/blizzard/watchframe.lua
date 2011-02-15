@@ -72,6 +72,8 @@ local function setup()
 
 	WatchFrameTitle:SetParent(TukuiWatchFrame)
 	WatchFrameCollapseExpandButton:SetParent(TukuiWatchFrame)
+	WatchFrameCollapseExpandButton:SetFrameStrata(WatchFrameHeader:GetFrameStrata())
+	WatchFrameCollapseExpandButton:SetFrameLevel(WatchFrameHeader:GetFrameLevel() + 1)
 	WatchFrameCollapseExpandButton:SetNormalTexture("")
 	WatchFrameCollapseExpandButton:SetPushedTexture("")
 	WatchFrameCollapseExpandButton:SetHighlightTexture("")
