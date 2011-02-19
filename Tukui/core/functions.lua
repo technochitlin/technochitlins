@@ -966,10 +966,10 @@ if C["unitframes"].raidunitdebuffwatch == true then
 		ORD.MatchBySpellName = false
 
 		T.debuffids = {
-			-- Other debuff
+		-- Other debuff
 			67479, -- Impale
 			
-			--CATA DEBUFFS
+		--CATA DEBUFFS
 		--Baradin Hold
 			95173, -- Consuming Darkness
 			
@@ -998,6 +998,9 @@ if C["unitframes"].raidunitdebuffwatch == true then
 			89084, -- Low Health
 			
 			--Nefarian
+			
+			--Sinestra
+			92956, --Wrack
 			
 		--The Bastion of Twilight
 			--Valiona & Theralion
@@ -1034,6 +1037,10 @@ if C["unitframes"].raidunitdebuffwatch == true then
 			93260, -- Ice Storm
 			93295, -- Lightning Rod
 		}
+		
+		T.ReverseTimer = {
+			[92956] = true, -- Sinestra (Wrack)
+		},
 		
 		ORD:RegisterDebuffs(T.debuffids)
 	end

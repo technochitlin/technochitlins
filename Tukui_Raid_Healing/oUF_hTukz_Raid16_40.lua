@@ -196,8 +196,8 @@ local function Shared(self, unit)
 		
 		-- Raid Debuffs (big middle icon)
 		local RaidDebuffs = CreateFrame('Frame', nil, self)
-		RaidDebuffs:Height(22*C["unitframes"].gridscale)
-		RaidDebuffs:Width(22*C["unitframes"].gridscale)
+		RaidDebuffs:Height(24*C["unitframes"].gridscale)
+		RaidDebuffs:Width(24*C["unitframes"].gridscale)
 		RaidDebuffs:Point('CENTER', health, 1,0)
 		RaidDebuffs:SetFrameStrata(health:GetFrameStrata())
 		RaidDebuffs:SetFrameLevel(health:GetFrameLevel() + 2)
@@ -223,6 +223,10 @@ local function Shared(self, unit)
 		RaidDebuffs.count:SetFont(C["media"].uffont, 9*C["unitframes"].gridscale, "THINOUTLINE")
 		RaidDebuffs.count:SetPoint('BOTTOMRIGHT', RaidDebuffs, 'BOTTOMRIGHT', 0, 2)
 		RaidDebuffs.count:SetTextColor(1, .9, 0)
+		
+		RaidDebuffs:FontString('time', C["media"].uffont, 9*C["unitframes"].gridscale, "THINOUTLINE")
+		RaidDebuffs.time:SetPoint('CENTER')
+		RaidDebuffs.time:SetTextColor(1, .9, 0)
 		
 		self.RaidDebuffs = RaidDebuffs
     end
