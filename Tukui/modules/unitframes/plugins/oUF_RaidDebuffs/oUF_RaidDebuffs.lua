@@ -156,7 +156,7 @@ local function OnUpdate(self, elapsed)
 		local timeLeft = self.endTime - GetTime()
 		if self.reverse then timeLeft = abs((self.endTime - GetTime()) - self.duration) end
 		if timeLeft > 0 then
-			local text, nextUpdate = formatTime(timeLeft)
+			local text = formatTime(timeLeft)
 			self.time:SetText(text)
 		else
 			self:SetScript('OnUpdate', nil)
