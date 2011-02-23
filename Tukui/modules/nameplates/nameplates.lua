@@ -627,5 +627,9 @@ if C["nameplate"].combat == true then
 		else
 			SetCVar("nameplateShowEnemies", 0)
 		end
+		
+		if C["nameplate"].enable == true and C["nameplate"].enhancethreat == true then
+			SetCVar("threatWarning", 3)
+		end
 	end
 end

@@ -70,5 +70,9 @@ Kill:SetScript("OnEvent", function(self, event, addon)
 			InterfaceOptionsActionBarsPanelRightTwo:Kill()
 			InterfaceOptionsActionBarsPanelAlwaysShowActionBars:Kill()
 		end
+		
+		if C["nameplate"].enable == true and C["nameplate"].enhancethreat == true then
+			InterfaceOptionsDisplayPanelAggroWarningDisplay:Kill()
+		end		
 	end
 end)
