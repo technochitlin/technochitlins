@@ -612,7 +612,7 @@ end)
 if C["nameplate"].combat == true then
 	NamePlates:RegisterEvent("PLAYER_REGEN_ENABLED")
 	NamePlates:RegisterEvent("PLAYER_REGEN_DISABLED")
-	NamePlates:RegisterEvent("PLAYER_ENTERING_WORLD")
+	
 	function NamePlates:PLAYER_REGEN_ENABLED()
 		SetCVar("nameplateShowEnemies", 0)
 	end
@@ -620,16 +620,19 @@ if C["nameplate"].combat == true then
 	function NamePlates:PLAYER_REGEN_DISABLED()
 		SetCVar("nameplateShowEnemies", 1)
 	end
+end
 
-	function NamePlates:PLAYER_ENTERING_WORLD()
+NamePlates:RegisterEvent("PLAYER_ENTERING_WORLD")
+function NamePlates:PLAYER_ENTERING_WORLD()
+	if C["nameplate"].combat == true then
 		if InCombatLockdown() then
 			SetCVar("nameplateShowEnemies", 1)
 		else
 			SetCVar("nameplateShowEnemies", 0)
 		end
-		
-		if C["nameplate"].enable == true and C["nameplate"].enhancethreat == true then
-			SetCVar("threatWarning", 3)
-		end
+	end
+	
+	if C["nameplate"].enable == true and C["nameplate"].enhancethreat == true then
+		SetCVar("threatWarning", 3)
 	end
 end
