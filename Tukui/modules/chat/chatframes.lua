@@ -258,6 +258,13 @@ end)
 -- Setup temp chat (BN, WHISPER) when needed.
 local function SetupTempChat()
 	local frame = FCF_GetCurrentChatFrame()
+	local id = frame:GetID()
+	local buttonup = _G[format("ChatFrame%sButtonFrameUpButton", id)]
+
+	-- do a check if we already did a skinning earlier for this temp chat frame
+	if not buttonup:IsShown() then return end
+	
+	-- style it
 	SetChatStyle(frame)
 end
 hooksecurefunc("FCF_OpenTemporaryWindow", SetupTempChat)
