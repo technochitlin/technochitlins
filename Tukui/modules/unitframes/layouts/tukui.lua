@@ -185,10 +185,8 @@ local function Shared(self, unit)
 				panel:Point("TOPLEFT", power, "BOTTOMLEFT", 0, -1)
 				portrait:SetPoint("TOPRIGHT", health, "TOPRIGHT", 34,0)
 			end
-			
 			panel:SetWidth(panel:GetWidth() - 34) -- panel need to be resized if charportrait is enabled
 			table.insert(self.__elements, T.HidePortrait)
-			portrait.PostUpdate = T.PortraitUpdate --Worgen Fix (Hydra)
 			self.Portrait = portrait
 		end
 		
@@ -493,21 +491,10 @@ local function Shared(self, unit)
 					TotemBar.Destroy = true
 					for i = 1, 4 do
 						TotemBar[i] = CreateFrame("StatusBar", self:GetName().."_TotemBar"..i, self)
-						-- a totem 'slot' in the default ui doesn't necessarily correspond to its place on the screen.
-						-- for example, on the default totem action bar frame, the first totem is earth, but earth's
-						-- slot id is two according to Blizzard default slotID!
-						-- we want to match action bar so we fix them by moving status bar around.
-						local fixme
-						if (i == 2) then
-							TotemBar[i]:Point("BOTTOMLEFT", self, "TOPLEFT", 0, 1)
-						elseif i == 1 then
-							fixme = 62
-							if T.lowversion then fixme = 46 end
-							TotemBar[i]:Point("BOTTOMLEFT", self, "TOPLEFT", fixme + 1, 1)
+						if (i == 1) then
+						   TotemBar[i]:Point("BOTTOMLEFT", self, "TOPLEFT", 0, 1)
 						else
-							fixme = i
-							if i == 3 then fixme = i-1 end
-							TotemBar[i]:Point("TOPLEFT", TotemBar[fixme-1], "TOPRIGHT", 1, 0)
+						   TotemBar[i]:Point("TOPLEFT", TotemBar[i-1], "TOPRIGHT", 1, 0)
 						end
 						TotemBar[i]:SetStatusBarTexture(normTex)
 						TotemBar[i]:Height(8)
